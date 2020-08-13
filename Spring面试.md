@@ -54,8 +54,6 @@ BeanFactory： 是Spring里面最底层的接口，包含了各种Bean的定义�
 ApplicationContext： 作为BeanFactory的派生，除了提供BeanFactory所具有的功能外，还提供了更完整的框架功能。
 
 
-
-
 ## Spring
 
 
