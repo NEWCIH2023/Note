@@ -301,6 +301,19 @@ public class InterruptExample {
 
 ## 常用锁
 
+### 独享锁 VS 共享锁
+
+独享锁，又叫`排他锁`，是指该锁一次只能被一个线程所持有。如果`线程T`对`数据A`加上排他锁后，则`其他线程`不能再对A加任何类型的锁。获得排他锁的线程既能读数据又能修改数据。
+
+> JDK的synchronized和JUC的Lock的实现类就是互斥锁，排他锁
+
+共享锁，指该锁可被多个线程所持有。如果`线程T`对`数据A`加上共享锁后，则其他线程只能对A再加`共享锁`，不能加`排他锁`。获得`共享锁`的线程只能读取数据，不能修改数据。
+
+| 模式      | 含义                           |
+| :-------- | :----------------------------- |
+| SHARED    | 表示线程以共享的模式等待锁     |
+| EXCLUSIVE | 表示线程正在以独占的方式等待锁 |
+
 ### 自旋锁
 
 `阻塞`或`唤醒`一个Java线程需要操作系统切换CPU状态来完成，这种状态切换需要耗费处理器时间。如果同步代码块中的内容过于简单，状态转换消耗的时间有可能比用户代码执行的时间还长。
@@ -316,6 +329,10 @@ public class InterruptExample {
 可重入锁，又名`递归锁`。是指在同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁 (`前提锁对象得是同一个对象或class`)，不会因为之前已经获取过还没释放而阻塞。
 
 > ReentrantLock与synchronized都是可重入锁
+
+![Image](../images/640-20210311101113980)
+
+`方法嵌套调用`：因为内置锁是可重入的，所以同一个线程在调用`doOthers`时可以直接获得当前对象的锁，进入`doOthers`进行操作。如果是一个不可重入锁，那么当前线程在调用`doOthers`之前需要将执行`doSomething`时获取当前对象的锁释放掉，实际上该对象锁已被当前线程所持有，且无法释放。所以此时会出现死锁。
 
 ### 锁的状态
 
@@ -413,13 +430,11 @@ select ... for update
 
 ##AQS
 
+### 基础说明
+
 AQS (`AbstractQueuedSynchronizer`)，队列同步器，用来构建`锁`和`其他同步组件`的基础框架。AQS是一个`抽象类`，仅仅只是定义了`同步状态的获取和释放的方法`来供自定义的同步组件使用。一般是`同步组件的静态内部类`，即通过`组合`的方式使用。(常用的`ReentrantLock/Semaphore/CountDownLatch`的实现都依赖AQS)
 
-
-
 AQS维护了一个`volatile int state (代表共享资源)`和`FIFO (线程等待队列，多线程争用资源被阻塞时进入此队列)`
-
-
 
 ```java
 public class ReentrantLock implements Lock, java.io.Serializable {
@@ -430,6 +445,74 @@ public class ReentrantLock implements Lock, java.io.Serializable {
   }
 }
 ```
+
+AQS框架架构图如下：**有颜色的是方法，无颜色的是属性**
+
+![82077ccf14127a87b77cefd1ccf562d3253591](../images/82077ccf14127a87b77cefd1ccf562d3253591.png)
+
+###原理概览
+
+AQS核心思想是，如果被请求的`共享资源`空闲，那么就将当前请求资源的线程设置为有效的工作线程，将共享资源设置为`锁定状态`；如果`共享资源`被占用，就需要一定的阻塞等待唤醒机制来保证锁分配。这个机制主要用到的是`CLH队列的变体 (Craig、Landin and Hagersten队列，单向链表，AQS中的队列是CLH变体的虚拟双向队列(FIFO)，AQS是通过将每条请求共享资源的线程封装成一个节点来实现锁的分配)`实现的，将暂时获取不到锁的线程加入到队列中。
+
+![7132e4cef44c26f62835b197b239147b18062](../images/7132e4cef44c26f62835b197b239147b18062.png)
+
+AQS使用一个`volatile的int类型的成员变量state`来表示`同步状态`，通过内置的FIFO队列来完成资源获取的排队工作，通过`CAS`完成对`state`值的修改。
+
+
+
+通过修改state字段表示的同步状态来实现多线程的独占模式：
+
+![27605d483e8935da683a93be015713f331378](../images/27605d483e8935da683a93be015713f331378.png)
+
+通过修改state字段表示的同步状态来实现多线程的共享模式：
+
+![3f1e1a44f5b7d77000ba4f9476189b2e32806](../images/3f1e1a44f5b7d77000ba4f9476189b2e32806.png)
+
+
+
+### 常用方法
+
++ protected final int getState()
+
+  **使用final修饰的方法无法被重写，类无法被继承**
+
++ protected final void setState(int newState)
+
++ protected final boolean compareAndSetState(int expetct, int update)
+
++ protected boolean isHeldExclusively()
+
+  该线程是否正在独占资源。只有用到Condition才需要去实现它。
+
+### 应用场景
+
+| 同步工具               | 同步工具与AQS的关联                                          |
+| :--------------------- | :----------------------------------------------------------- |
+| ReentrantLock          | 使用`AQS`保存`锁重复持有的次数`。当一个线程获取锁时，ReentrantLock记录当前获得锁的线程标识，用于检测是否重复获取，以及错误线程试图解锁操作时异常情况的处理。 |
+| Semaphore              | 使用AQS同步状态来`保存信号量的当前计数`。tryRelease会增加计数，acquireShared会减少计数。 |
+| CountDownLatch         | 使用AQS同步状态来`表示计数`。计数为0时，所有的Acquire操作（CountDownLatch的await方法）才可以通过。 |
+| ReentrantReadWriteLock | 使用AQS同步状态中的16位`保存写锁持有的次数`，剩下的16位用于`保存读锁的持有次数`。 |
+| ThreadPoolExecutor     | Worker利用AQS同步状态实现`对独占线程变量的设置`（tryAcquire和tryRelease）。 |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ##CAS
 
@@ -735,9 +818,9 @@ ArrayBlockingQueue<Integer> block = new ArrayBlockingQueue<Integer>(10, true);
 + DelayQueue
   + 无界阻塞
   + 元素必须实现`Delayed`接口
-  + 当数据对象的延时时间达到`时长`才能插入到队列进行储存。
+  + 创建元素时，可以指定多久才能从队列中获取当前元素。只有延时期满后才能从队列中获取元素。
 + LinkedBlockingQueue
-  + 链表实现、可选无界阻塞(`可选容量，默认为无界，即Integer.MAX_VALUE`)
+  + 链表实现、可选无界阻塞(`可选容量，默认为无界，即Integer.MAX_VALUE，所以默认创建的该队列有容量危险`)
   + FIFO
 
 > 为了防止容量迅速增大，通常在创建该对象时，会指定大小。如未指定，则容量等于Integer.MAX_VALUE
@@ -745,9 +828,19 @@ ArrayBlockingQueue<Integer> block = new ArrayBlockingQueue<Integer>(10, true);
 + LinkedBlockingDueue
 + LinkedTransferQueue
 + PriorityBlockingQueue
+  + 支持线程优先级排序的无界队列
+  + 默认自然序进行排序，也可以自定义实现compareTo方法来制定元素排序规则，不能保证同优先级元素的顺序
 + SynchronousQueue
 
-##线程池参数说明
+
+
+##线程池
+
+### 执行流程
+
+![截屏2021-03-11 15.54.14](../images/%E6%88%AA%E5%B1%8F2021-03-11%2015.54.14.png)
+
+### 参数说明
 
 + `corePoolSize`
 
@@ -755,7 +848,7 @@ ArrayBlockingQueue<Integer> block = new ArrayBlockingQueue<Integer>(10, true);
 
 + `maxPoolSize`
 
-当线程数大于等于`corePoolSize`，并且任务阻塞队列已满时，线程池会创建新的线程，直到线程数达到`maxPoolSize`。当线程数达到`maxPoolSize`，且任务阻塞队列已满，这时候线程池会拒绝处理任务而抛出异常。
+当线程数大于等于`corePoolSize`，并且任务阻塞队列已满时，线程池会创建新的线程，直到线程数达到`maxPoolSize`。当线程数达到`maxPoolSize`，且任务阻塞队列已满，这时候线程池会根据`拒绝策略`来处理该任务，默认的处理方式是直接抛异常。
 
 + `keepAliveTime`
 
@@ -783,6 +876,8 @@ Runtime.getRuntime().availableProcessors() * 50;
 
 
 ## 参考链接
+
+[从ReentrantLock的实现看AQS的原理及应用](https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html)
 
 
 

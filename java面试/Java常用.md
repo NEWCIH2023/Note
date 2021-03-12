@@ -1,20 +1,225 @@
 [TOC]
 
+# 基础
+
+## 关键字
+
+### final
+
+使用final修饰的方法无法被重写，类无法被继承。
+
+
+
+## JVM与虚拟机
+
+### JVM内存模型
+
+![v2-354d31865d1fb3362f5a1ca938f9a770_1440w](../images/v2-354d31865d1fb3362f5a1ca938f9a770_1440w.jpg)
+
+####栈 Stack
+
+线程私有的`内存区域`，每个方法执行的同时都会创建一个`栈帧 (Stack Frame)`，用于储存`局部变量表` (`基本数据类型`、`对象引用`)、`操作数栈`、`动态链接`、`方法出口`等信息。
+
+#### 堆 Heap
+
+储存几乎所有的`实例对象`，由`垃圾收集器`自动回收，堆区由`各子线程共享使用`
+
+#### 方法区 Method Area
+
+被`所有线程`共享的内存区域，用来储存已被虚拟机加载的`类信息`、`常量`、`静态变量`、`JIT编译后的代码`。`运行时常量池`是方法区的一部分，用于存放`编译期间`生成的各种`字面常量`和`符号引用`。
+
+### 类加载机制
+
++ 加载
+
+  + 通过类的完全限定名称获取定义该类的二进制字节流
+  + 将该字节流表示的静态存储结构转换为方法区的运行时储存结构
+  + 在内存中生成一个代表该类的Class对象，作为方法区中该类各种数据的访问入口
+
++ 验证
+
+  + 确保Class文件的字节流中包含的信息符合当前虚拟机的要求，并且不会危害虚拟机自身的安全
+
++ 准备
+
+  + 类变量是被static修饰的变量，准备阶段为类变量分配内存并设置初始值，使用的是方法区的内存
+  + 实例变量不会在这阶段分配内存
+
+  > 实例化不是类加载的一个过程，类加载发生在所有实例化操作之前，并且类加载只进行一次，实例化可以进行多次
+
++ 解析
+
+  + 将常量池的符号引用替换为直接引用的过程
+
+  > 解析过程在某些情况下可以在初始化阶段之后再开始，这是为了支持Java的动态绑定
+
++ 初始化
+
+  + 初始化阶段才真正开始执行类中定义的Java程序代码。
+
+
+### Java的GC
+
+判断一个对象是否可被回收
+
++ 引用计数算法
+
+为对象添加一个引用计数器，当对象增加一个引用时，计数器加1，引用失效时计数器减1。引用计数为0的对象可被回收
+
+> 在两个对象出现循环引用的情况下，此时引用计数器永远不为0，导致无法对他们进行回收。正是因为循环引用的存在，因此Java虚拟机不再使用计数算法
+
++ 可达性算法
+
+以GC Roots为起始点进行搜索，可达的对象都是存活的，不可达的对象可被回收。Java虚拟机使用该算法来判断对象是否可回收，GC Roots一般包含以下内容
+
++ 虚拟机栈中局部变量表中引用的对象
++ 本地方法栈中JNI引用的对象
++ 方法区中类静态属性引用的对象
++ 方法区中常量引用的对象
+
++ finalize()
+
+用于关闭外部资源，但是try-finally等方式可以做的更好，并且该方法运行代价很高，不确定性大，无法保证各个对象的调用顺序，因此最好不要使用。
+
+> 当一个对象可被回收时，如果需要执行该对象的finalize方法，那么就有可能在该方法中让对象重新被引用，从而实现自救。自救只能进行一次，如果回收的对象之前调用了finalize方法自救，后面回收时不会再调用该方法。
+
+#### 引用类型
+
++ 强引用
+
+被强引用关联的对象不会被回收。使用new一个新对象的方式来创建强引用
+
++ 软引用
+
+被软引用关联的对象只有在内存不够的情况下才会被回收。使用SoftReference类来创建软引用。
+
+```java
+Object obj = new Object();
+SoftReference<Object> sf = new SoftReference<Object>(obj);
+obj = null;  // 使对象只被软引用关联
+```
+
++ 弱引用
+  被若引用关联的对象一定会被回收，也就是说它只能存活到下一次垃圾回收发生之前。使用WeakReference类来创建弱引用。
+
+```java
+Object obj = new Object();
+WeakReference<Object> wf = new WeakReference<Object>(obj);
+obj = null;
+```
+
++ 虚引用
+
+一个对象是否有虚引用的存在，不会对其生存时间造成影响，也无法通过虚引用得到一个对象。为一个对象设置虚引用的唯一目的是能在这个对象被回收时收到系统的一个通知。使用PhantomReference来创建虚引用。
+
+```java
+Object obj = new Object();
+PhantomReference pf = new PhantomReference<Object>(obj, null);
+obj = null;
+```
+
+
+### Java类加载器
+
+> 双亲委派模型，该机制可以避免重复加载，当父亲已经加载了该类的时候，就没有必要子`ClassLoader`再加载一次。JVM根据`类名+包名+ClassLoader实例ID`来判定两个类是否相同，是否已经加载过。(可以通过创建不同的`ClassLoader`实例来实现类的热部署)
+
++ `BootStrapClassLoader`
+
+最顶层的类加载器，由C++编写而成，已经内嵌到`JVM`中。在JVM启动时会初始化该`ClassLoader`，它主要用来读取`Java`的核心类库`JRE/lib/rt.jar`中所有的`class`文件，这个`jar`文件中包含了`java`规范定义的所有接口及实现。
+
++ `ExtensionClassLoader`
+
+用来读取`Java`的一些扩展类库，如读取`JRE/lib/ext/*.jar`中的包
+
++ `AppClassLoader`
+
+用来读取`classpath`下指定的所有`jar`包或目录的类文件，一般情况下，这个就是程序默认的类加载器
+
++ `CustomClassLoader`
+
+用户自定义编写的，用来读取指定类文件。基于自定义的`ClassLoader`可用于加载非`classpath`中（如从网络上下载的`jar`或二进制）的`jar`及目录、还可以在加载前对`class`文件优化一些动作，如解密、编码等
+
+> `ExtensionClassLoader`的父类加载器是`BootStrapClassLoader`，其实这里省掉了一句话，容易造成很多新手的迷惑。严格说，`ExtClassLoader`的父类加载器是`null`，只不过是在默认的`ClassLoader
+> `的`loadClass`方法中，当`parent`为`null`时，是交给`BootStrapClassLoader`来处理的，而且`ExtClassLoader`没有重写默认的`loadClass`方法，所有，`ExtClassLoader`也会调用`BootStrapClassLoader`类加载器来加载。
+
+
+
 # 集合
 
+包含`Map接口`和`Collection接口`及其所有实现类
+
++ Collection接口	
+  + Set接口
+    + HashSet类
+    + TreeSet类
+    + LinkedHashSet类
+  + List接口
+    + ArrayList类
+    + LinkedList类
+    + Stack类
+    + Vector类
++ Map接口
+  + HashMap类
+  + TreeMap类
+  + Hashtable类
+  + ConcurrentHashMap类
+  + Properties类
+
 ## Collections
+
+### HashSet
+
++ HashSet如何保证数据不可重复？
+
+  底层是`HashMap`，**HashSet是实现了Set接口，并且把数据作为K值，而V值一直使用一个相同的虚值来保存**
+
+```java
+private static final Object PERSENT = new Object();
+
+public boolean add(E e) {
+  return map.put(e, PERSENT) == null;
+}
+```
+
+### ArrayList
+
+
+
+#### ArrayList VS Vector 区别
+
++ Vector线程安全，ArrayList线程不安全
++ 数据增长。Vector在数据满时(`加载因子为1`)，增长为原来的`两倍`。ArrayList在数据量达到容量的一半时(`加载因子为0.5`)，增长为原容量的`0.5倍 + 1`个空间。
+
+#### ArrayList VS Array(即数组，非类) 区别
+
++ 数据可以包含`基本类型`和`对象类型`，ArrayList只能包含`对象类型`
++ 数据`大小固定`，ArrayList的大小不固定
++ ArrayList提供更多方法
 
 ## Map
 
 + 永远不要将可变对象类型用作HashMap中的键，因为hashCode()可能会随着变动，导致get出来为null
 
-## ConcurrentMap
+### Hashtable
+
+##### Hashtable VS HashMap 区别
+
++ HashMap没有考虑同步，`线程不安全`；Hashtable使用了synchronized关键字，`线程安全`
++ HashMap允许`K/V都为null`；后者`K/V都不允许为null`
++ HashMap继承自`AbstractMap`类；而Hashtable继承自`Dictionary`类
+
+#### Hashtable VS ConcurrentHashMap 区别
+
++ 都是线程安全
++ Hashtable锁住整个方法，ConcurrentHashMap锁级别更细粒度
+
+###ConcurrentMap
 
 当一个Map被多个线程访问时，通常使用`containsKey()`或者`get()`来查看给定键是否在存储键值对之前出现。但是即使有一个同步的Map，线程还是可以在这个过程中潜入，然后夺取对Map的控制权。问题是，在对put()的调用中，锁在get()开始时获取，然后在可以再次获取锁之前释放。它的结果是个竞争条件：`这是两个线程之间的竞争，结果也会因谁先运行而不同`。
 
-## HashMap工作原理
+###HashMap工作原理
 
-### 重要参数
+####重要参数
 
 + loadFactor
   负载因子，会影响到HashMap的扩容，负载因子越大，HashMap的碰撞越剧烈，但是resize越少；负载因子越少，HashMap碰撞概率越小，但是resize越多。
@@ -22,17 +227,20 @@
 + threshold
   要扩容的阈值。当容量大小等于这个阈值的时候，HashMap就会扩容 
 
-### 重要方法
+####重要方法
 
 + `put`
-  + 取Key的hashCode
+  + 取Key的hash值
   + 判断HashMap里面的槽是不是空的，如果是空的就需要初始化HashMap里面槽的数量
   + 判断这个Kay所对应的槽是否被占用，如果没有被占用，就将Key-Value生成一个新的节点，放到对应的槽中
-  + 如果这个槽被占用了，分成三步判断：
-    + 判断Key是否相同，如果相同则返回原有的Node，如果不相同则进行下面的判断
+  + 如果这个槽被占用了(`调用hash方法返回值一致，hash方法里面会调用hashCode方法`)，分成三步判断：
+    + 判断Key是否相同(`调用equals方法返回一致`)，如果相同则返回原有的Node，如果不相同则进行下面的判断
     + 判断节点是否属于树节点（TreeNode），如果属于，则添加到红黑树中
-    + 如果不是树节点，则一定是链表的Node，遍历链表，如果链表长度大于等于7了，则将链表转换成为红黑树，否则添加到链表中
+    + 如果不是树节点，则一定是链表的Node，遍历链表，如果链表长度大于等于8了，则将链表转换成为红黑树，否则添加到链表中
   + 最后判断HashMap的大小是否大于阈值，如果大于，则进行扩容
+
+
+![v2-98de7c56c842a5b0458cec3f564e493d_1440w](../images/v2-98de7c56c842a5b0458cec3f564e493d_1440w.jpg)
 
 + `resize`
   + 判断当前的table里面的size是否大于0，如果大于0的话，就会判断当前的table里面的size是否超过了最大值，如果超过最大值，就不会再扩容，如果没有超过的话，就会将原有的size扩大到原来的两倍，并且判断扩容之后的size是否大于最大值，如果超过最大值就按照最大值来扩容。
@@ -48,18 +256,40 @@
   + 如果第一个不是，就判断node节点是不是树节点，如果是，就直接去红黑树里面查找
   + 如果也不是树节点，那就在链表里面循环查找
 
-### 与JDK7对比
+####与JDK7对比
 
 + 插入链表的时候，在JDK7的时候，HashMap插入链表是采用头插法，而在JDK8使用的是尾插法，之所以这么改变的原因是因为，头插法的链表在HashMap的resize()过程中可能因为多线程导致的逆序，让链表形成死循环。
 + 在JDK7的HashMap中，HashMap的数据结构是数组+单向链表，在JDK8的HashMap中，采用的是数组+单链表+红黑树的数据结构
 + 在resiez过程中，JDK7和JDK8的差别主要是在迁移时计算新的索引的位置。JDK7是重新计算Key的hash值，然后用（size-1） & hash得到新的索引位置，而JDK8时，是采用判断高一个bit位的位值，如果高一位的位值是0，那么索引位置就不变，如果是1那么就用原来的HashMap的size大小加上原有的索引位置（原索引+oldCap），这么改变是为了降低rehash带来的开销
 
-### 细节总结
+####细节总结
 
 + 在HashMap中链表什么时候会转换成红黑树？
-  链表在大于等于7个的时候
+  链表在大于等于8个的时候
+  
++ 怎么解决哈希冲突？
 
-### 结构体系
+  + 链地址法，链接拥有相同hash值的数据
+  + 使用2次扰动函数(hash函数)，降低哈希冲突概率，使数据分布更平均
+  + 引入红黑树，降低遍历的时间复杂度
+
++ HashMap为什么不直接使用hashCode方法值用作table的下标？
+
+  hashCode返回值是`int`数据类型，范围是`-(2^31) ~ 2^31 - 1`，而HashMap的容量范围是`16 ~ 2^30`，导致通过`hashCode`计算出的哈希值可能不在数组大小范围内，进而无法匹配存储位置。
+
++ 为什么数组长度要保证为2的幂次方？
+
+  只有当数组长度为2的幂次方时，`h & (length-1)`才等价`h % length`。
+
++ 为什么String、Integer这样的类适合作为K？
+
+  + 这些类能够保证Hash值的不可更改性和计算准确性
+  + 都是final类型，即不可变性，保证key的不可更改性，不会存在获取hash值不同的情况
+  + 内部已重写`equals`、`hashCode`等方法 (**想让自己的类作为Key，同理要重写这两个方法**)
+
+  
+
+####结构体系
 
 + HashMap结构实际上是由`数组`+`链表`+`红黑树`组成
 
