@@ -1,6 +1,8 @@
 
 # Spring面试
 
+## Spring框架
+
 ### 用了什么设计模式？
 
 + 工厂模式
@@ -40,7 +42,6 @@
 + 基于切面和惯例进行声明式编程
 + 通过切面和模板减少样板式代码
 
-
 ### 什么是IOC？
 
 由程序代码直接操控的对象的调用权交给容器，通过容器来实现对象组件的装配和管理。(通过工厂模式和反射机制实现)
@@ -53,12 +54,28 @@ BeanFactory： 是Spring里面最底层的接口，包含了各种Bean的定义�
 
 ApplicationContext： 作为BeanFactory的派生，除了提供BeanFactory所具有的功能外，还提供了更完整的框架功能。
 
+### Spring Bean的生命周期
 
-## Spring
++ 实例化 **Instantiation**
++ 属性赋值 **Populate**
++ 初始化 **Initialization**
++ 销毁 **Destruction**
+
 
 
 ## SpringMVC
 
+### 原理
+
++ 发起请求到`前端控制器 DispatcherServlet`，该控制器就会过滤出你哪些请求可以访问该servlet
++ 前端控制器会找到`处理器映射器 HandlerMapping`，通过处理器映射器完成`url`到`controller`的映射
++ 通过`映射器`找到对应的`处理器 Handler` ，并将`处理器`返回给`前端控制器`。(`返回的处理器前有拦截器`)
++ `前端控制器`拿到`处理器`之后，找到`处理器适配器 HandlerAdapter`，通过适配器来访问和执行处理器。(`不能直接访问处理器，因为Spring的设计，不知道调用哪个方法，不知道处理器类如何创建出来的，如注解等等`)
++  执行处理器
++ 处理器返回`ModelAndView`对象给`处理器适配器 HandlerAdapter`
++ 通过`处理器适配器 HandlerAdapter`将`ModelAndView`对象返回给`前端控制器(DispatcherServlet)`
++ `前端控制器`请求`视图解析器 ViewResolver`进行解析，将`ModelAndView`的数据进行视图渲染。
++ 最后返回结果。
 
 
 ## SpringBoot
