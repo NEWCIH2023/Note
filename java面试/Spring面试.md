@@ -1,7 +1,15 @@
+[TOC]
 
 # Spring面试
 
 ## Spring框架
+
+为了降低Java开发的复杂性，Spring采取了以下4种关键策略
+
++ 基于POJO的轻量级和最小侵入性编程
++ 通过依赖注入和面向接口实现松耦合
++ 基于切面和惯例进行声明式编程
++ 通过切面和模板减少样板式代码
 
 ### 用了什么设计模式？
 
@@ -33,18 +41,70 @@
 + 请求处理事件 （RequestHandledEvent)
     在Web应用中，当一个http请求(request)结束触发该事件。如果一个Bean实现了ApplicationListener接口，当一个ApplicationEvent被发布以后，bean会自动被通知
 
-### 什么是Spring？
+### AOP切面编程
 
-为了降低Java开发的复杂性，Spring采取了以下4种关键策略
+> `AOP编程`思想就是把这些`横向性`的问题和业务逻辑进行分离，从而起到解耦的目的。
 
-+ 基于POJO的轻量级和最小侵入性编程
-+ 通过依赖注入和面向接口实现松耦合
-+ 基于切面和惯例进行声明式编程
-+ 通过切面和模板减少样板式代码
++ 使用`@Aspect` 定义切面类
++ 使用`@PointCut` 定义切点
 
-### 什么是IOC？
+AOP通过两种方式实现 (`没有默认实现的说法`)
++ java动态代理 (`被代理的类必须是接口`)
+    + 生成的代理类的toString前缀是`$Proxy`
+    + 生成字节码文件的字节数组
++ cglib动态代理
+    + 生成的代理类的toString前缀是`CGLIB$`
+
+> java动态代理为什么必须是接口？因为`代理类必须继承Proxy类`，所以不能继承用户类，而只能是实现用户的接口
+
+```java
+// AOP使用的代理实现，根据判断条件而来，没有默认使用其中一种的说法
+public class DefaultAopProxyFactory implements AopProxyFactory, Serializable {
+
+    @Override
+    public AopProxy createAopProxy(AdvisedSupport config) throws AopConfigException {
+
+        if (config.isOptimized() || config.isProxyTargetClass() || hasNoUserSuppliedProxyInterfaces(config)) {
+
+            Class<?> targetClass = config.getTargetClass();
+
+            if (targetClass == null) {
+                throw new AopConfigException("TargetSource cannot determine target class: Either an interface or a target is required for proxy creation")
+            }
+
+            if (targetClass.isInterface() || Proxy.isProxyClass(targetClass)) {
+                return new JdkDynamicAopProxy(config);
+            }
+
+            return new ObjenesisCglibAopProxy(config);
+        } else {
+            return new JdkDynamicAopProxy(config);
+        }
+    }
+}
+```
+
+```java
+// 创建上下文，这里面通过后置处理器，已经生成了代理对象
+AnnotationConfigApplicationContext context = new AnnotationConfigApplicatonContext(...);
+
+// 获取对象
+UserService service = context.getBean(UserSerivce.class);
+
+service.doSomething();
+// 获取到的service不是原生对象，是代理对象
+```
+
+
+### IOC容器
 
 由程序代码直接操控的对象的调用权交给容器，通过容器来实现对象组件的装配和管理。(通过工厂模式和反射机制实现)
+
+> IOC容器把对象注入进去的时候，已经不是原生对象，而是代理对象了。
+
+IOC获取到实例对象的方式
++ XML注入
++ 注解注入
 
 ### BeanFactory 与 ApplicationContext 有什么区别？
 
