@@ -44,6 +44,27 @@ public class ThreadTest extends Thread {
 }
 ```
 
+## Java IO
+
+### IO多路复用
+
+目前流行的多路复用IO实现主要包括四种：**select**, **poll**, **epoll**, **kqueue**
+
+| IO模型 | 相对性能 | 关键思路         | 操作系统      | JAVA支持情况                                                 |
+| ------ | -------- | ---------------- | ------------- | ------------------------------------------------------------ |
+| select | 较高     | Reactor          | windows/Linux | 支持,Reactor模式(反应器设计模式)。Linux操作系统的 kernels 2.4内核版本之前，默认使用select；而目前windows下对同步IO的支持，都是select模型 |
+| poll   | 较高     | Reactor          | Linux         | Linux下的JAVA NIO框架，Linux kernels 2.6内核版本之前使用poll进行支持。也是使用的Reactor模式 |
+| epoll  | 高       | Reactor/Proactor | Linux         | Linux kernels 2.6内核版本及以后使用epoll进行支持；Linux kernels 2.6内核版本之前使用poll进行支持；另外一定注意，由于Linux下没有Windows下的IOCP技术提供真正的 异步IO 支持，所以Linux下使用epoll模拟异步IO |
+| kqueue | 高       | Proactor         | Linux         | 目前JAVA的版本不支持                                         |
+
+#### 重要概念 Channel **通道**
+被建立的一个应用程序和操作系统交互事件、传递内容的渠道 (`注意是连接到操作系统`)。一个通道会有一个专属的文件状态描述符。那么既然是和操作系统进行内容的传递，那么说明应用程序可以通过通道读取数据，也可以通过通道向操作系统写数据。
+
+#### 重要概念 Buffer **数据缓存区**
+为了保证每个通道的数据读写速度，Java NIO框架为每一种需要支持数据读写的通道集成了Buffer的支持
+
+#### 重要概念 Selector **选择器**
+
 
 ## 关键字
 
@@ -59,7 +80,7 @@ public class ThreadTest extends Thread {
 
 #### 本地方法栈
 
-#### 栈 Stack
+#### 虚拟机栈 Stack
 
 线程私有的`内存区域`，每个方法执行的同时都会创建一个`栈帧 (Stack Frame)`，用于储存`局部变量表` (`基本数据类型`、`对象引用`)、`操作数栈`、`动态链接`、`方法出口`等信息。
 
@@ -199,6 +220,30 @@ obj = null;
 
 ### FAQ
 
++ 虚拟机栈和本地方法栈区别？
+  + 虚拟机栈为`虚拟机执行Java方法`服务
+  + 本地方法栈为`虚拟机使用到的Native方法服务`服务
++ JVM内存区域哪些会发生OOM
+  + 堆
+    + 抛出`OutOfMemoryError: Java heap space`
+    + 通过控制`-Xmx`和`-Xms`解决
+  + `Java虚拟机栈`和`本地方法栈`
+    + 如果线程请求的栈大于所分配的栈大小，则抛出`StackOverFlowError`错误，比如不会停止的递归调用
+    + 如果虚拟机栈是可以动态拓展的，拓展时无法申请到足够的内存，则抛出`OutOfMemoryError`错误
+  + 方法区
+    + 抛出`OutOfMemoryError: Metaspace`
+  + 永久代
+    + 旧版本的JDK，因JVM对永久代的垃圾回收并不积极。抛出`OutOfMemoryError: PermGen space`
+
+| 内存区域     | 是否线程私有 | 是否会发生OOM |
+| ------------ | ------------ | ------------- |
+| `程序计数器` | `是`         | `否`          |
+| 虚拟机栈     | 是           | 是            |
+| 本地方法栈   | 是           | 是            |
+| 方法区       | 否           | 是            |
+| 直接内存     | 否           | 是            |
+| 堆           | 否           | 是            |
+
 + GC为什么要分带？
   + 减少stw次数，即减少`full gc`次数
 
@@ -255,7 +300,10 @@ obj = null;
 > JDK官方注释：迭代器的快速失败行为是不一定能够得到保证的，一般来说，存在非同步的并发修改时，不可能做出任何坚决的保证的。但是快速失败迭代器会做出最大的努力来抛出`ConcurrentModificationException`。因此，编写依赖于此异常的程序的做法是不正确的。正确的做法应该是：`迭代器的快速失败行为应该仅用于检测程序中的bug`。
 
 **fail-safe**: 
+不会抛出异常
 
++ 复制时需要额外的空间和时间上的开销
++ 不能保证遍历的是最新内容
 
 #### FAQ
 
@@ -297,6 +345,8 @@ public boolean add(E e) {
   + Enumeration
     + boolean hasMoreElements()
     + E nextElement()
++ Iterator支持`fail-fast机制`, Enumeration不支持
++ Enumeration遍历效率较高
 
 ### CopyOnWriteArrayList
 
@@ -380,7 +430,7 @@ public boolean add(E e) {
 > HashMap的容量始终为2的幂次。在扩容的时候，元素的位置要么是在原位置，要么是否原位置再移动2次幂的位置
 
 + `get`
-  + 判断现在HashMap里面的table是否为空，以及要获取的key对应的槽是否为空，如果为空，就直接返回null
+  + 判断现在HashMap里面的`table`是否为空，以及要获取的key对应的槽是否为空，如果为空，就直接返回null
   + 如果都不为空，就判断槽里面的第一个node是不是想要找的key，如果是直接返回
   + 如果第一个不是，就判断node节点是不是树节点，如果是，就直接去红黑树里面查找
   + 如果也不是树节点，那就在链表里面循环查找

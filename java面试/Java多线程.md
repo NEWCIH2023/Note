@@ -30,28 +30,42 @@
   + 实现Callable接口和FutureTask类 (`本质上也是Runnable`)
 
 + Java对象头
-
   + 标记字段 (`Mark Work`)
-
     默认存储对象的`HashCode`、`分代年龄`和`锁标志位`信息。这些信息都是`与对象自身定义无关`的数据，所以`Mark Word`被设计成一个非固定的数据结构以便在极小的空间内存储尽量多的数据。它会根据对象的状态复用自己的储存空间，也就是说`运行期间，Mark Word里储存的数据会随着锁标志位的变化而变化`
 
   + 类型指针 (`Klass Pointer`)
-
     对象指向它的类元数据的指针，`虚拟机通过这个指针来确定这个对象是哪个类的实例`
 
 + Monitor
-
   可以理解为一个`同步工具`、或一种`同步机制`，通常被描述为一个对象。每一个Java对象就有一把看不见的锁，称为`内部锁`或`Monitor锁`
 
   Monitor是`线程`私有的数据结构，每一个线程都有一个可用monitor record列表，同时还有一个全局可用列表。每一个被锁住的对象都会和一个`monitor`关联，同时monitor中有一个`Owner`字段存放`拥有该锁的线程的唯一标识`，表示该锁被这个线程占用。
+
+![img](../images/39b4e53a2d113b047b35e89cf9511873.png)
+
+> Monitor描述为对象监视器，可以类比一个特殊的房间，这个房间中有一些被保护的数据，Monitor保证每次只能有一个线程能进入这个房间进行访问被保护的数据，进入房间即为持有Monitor，退出房间即为释放Monitor。使用synchronized加锁的同步代码块，主要就是通过锁对象的monitor的取用和释放来实现的。  
+
+  + 线程状态在Monitor上体现
+    当多个线程同时请求某个对象监视器时，对象监视器会设置几种状态用来区分请求的线程
+    + Contention List `所有请求锁的线程将被首先放置到该竞争队列`
+    + Entry List `Contention List中那些有资格成为候选人的线程被移到Entry List`
+    + Wait Set `调用wait方法被阻塞的线程，被放置到wait set`
+    + OnDeck `任何时刻最多只有一个线程正在竞争锁，该线程称为OnDeck`
+    + Owner `释放锁的线程`
+
+![img](../images/5bda59dde6fb799154d03d61cb27b717.png)
+
+
 
 > synchronized通过Monitor来实现线程同步，Monitor是依赖于底层的操作系统的`Mutex Lock (互斥锁)`来实现的线程同步
 
 + 同步方法或同步代码块
 
-  当`JVM`执行一个同步方法时，执行中的线程识别该方法的`method_info`结构是否有`ACC_SYNCHRONIZED`标记设置，然后它自动获取对象锁，调用方法，最后释放锁。如果有异常发生，线程自动释放锁。
+  + 当`JVM`执行一个同步方法时，执行中的线程识别该方法的`method_info`结构是否有`ACC_SYNCHRONIZED`标记设置，然后它自动获取对象锁，调用方法，最后释放锁。如果有异常发生，线程自动释放锁。
 
-  `字节代码`：创建`同步代码块`产生了16行字节码，而创建`同步方法`仅产生了5行。
+  + `字节代码`：创建`同步代码块`产生了16行字节码，而创建`同步方法`仅产生了5行。
+
+  + 同步实例方法，则当前实例加锁。同步静态方法，则当前类加锁。同步方法块，则给定对象加锁
 
 + `volatile`关键字
 
@@ -419,6 +433,10 @@ public class InterruptExample {
 #### 综述
 
 `偏向锁`通过对比`Mark Word`解决加锁问题，避免执行CAS操作。而轻量级锁是通过用`CAS操作`和`自旋`来解决加锁问题，避免`线程阻塞`和`唤醒`而影响性能。重量级锁是`将除了拥有锁的线程以外的线程都阻塞`
+
+
+
+![img](../images/53694237c936e209f12e5312f1cfdf15.png)
 
 ### 公平锁
 
@@ -879,12 +897,25 @@ ArrayBlockingQueue<Integer> block = new ArrayBlockingQueue<Integer>(10, true);
 ## 线程池
 
 线程池的优点
-+ 避免线程的创建和销毁带来的性能开销
-+ 避免大量的线程间因互相抢占系统资源导致的阻塞现象
-+ 能够对线程进行简单的管理并提供定时执行、间隔执行等功能
++ 避免线程的创建和销毁带来的性能开销 **酱紫资源消耗**
++ 避免大量的线程间因互相抢占系统资源导致的阻塞现象 **提高响应速度**
++ 能够对线程进行简单的管理并提供定时执行、间隔执行等功能 **提高线程的可管理性**
++ 提供更多更强大的功能
+
+线程池的运行状态
+
+|运行状态|状态描述|
+|:---:|:---:|
+|**RUNNING**|能接受新提交的任务，并且也能处理阻塞队列中的任务|
+|**SHUTDOWN**|关闭状态，不再接受新提交的任务，但却可以继续处理阻塞队列中已保存的任务|
+|**STOP**|不能接受新任务，也不处理队列中的任务，会中断正在处理任务的线程|
+|**TIDYING**|所有的任务都已经终止了，workerCount(`有效线程数`)为0|
+
+![图3 线程池生命周期](../images/582d1606d57ff99aa0e5f8fc59c7819329028.png)
 
 ### 复用原理
 
+![图6 获取任务流程图](https://p0.meituan.net/travelcube/49d8041f8480aba5ef59079fcc7143b996706.png)
 
 
 ### 执行流程
@@ -894,8 +925,9 @@ ArrayBlockingQueue<Integer> block = new ArrayBlockingQueue<Integer>(10, true);
 ### 参数说明
 
 + 拒绝策略
-  + AbortPolicy，直接抛异常 **默认**
-  + 
+
+![img](../images/9ffb64cc4c64c0cb8d38dac01c89c905178456.png)
+
 
 + `corePoolSize`
 
@@ -928,10 +960,44 @@ Runtime.getRuntime().availableProcessors() * 50;
 
 这种设置线程数的方式，在`StackOverFlow`看得有点多，而且`hsweb`开源项目也是使用这种方法的
 
+### 写法
+
+```java
+package ...
+
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
+
+public class Main {
+
+  public static void main(String[] args) {
+      int coreSize = 10, maxSize = 40, keepAliveTime = 1000;
+      TimeUnit keepAliveUnit = TimeUnit.SECONDS;
+      BlockingQueue<Runnable> queue = new LinkedBlockingQueue<>(100_00);
+
+      ExecutorService service = new ThreadPoolExecutor(coreSize, maxSize, keepAliveTime, keepAliveUnit, queue, r -> {
+        Thread temp = new Thread(r);
+        temp.setName("GROUP-"+System.currentTimeMillis());
+        return temp;
+      }, (runnable, executor)->{
+        System.out.println(runnable+"直接放弃");
+      });
+  }
+}
+
+```
+
+### FAQ
+
++ 阻塞队列如果使用无界队列会怎样？
+  + 最大线程数的配置失效，因为阻塞队列很难达到最大值
+
 ## 参考链接
 
 [从ReentrantLock的实现看AQS的原理及应用](https://tech.meituan.com/2019/12/05/aqs-theory-and-apply.html)
-
 
 
 # 死锁如何产生？如何防范死锁
