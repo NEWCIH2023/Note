@@ -259,6 +259,8 @@
 
 ## Vue
 
++ Vue中的props大小写自动识别，event名不自动识别。但是前提是，在字符串模板下，没有这种限制，也就是大小写可以敏感。所谓字符串模板，包括new Vue的template选项，也包括单文件Vue组件的template标签，会经过vue-loader编译。
+
 +   Vue-Router对象会存储query的参数值，因此能保存数据类型。当reload整个页面时，Router对象丢失，数据类型数据丢失，所有参数都解析成字符串类型。
     
 +   Vue的样式Scoped，注意，不会覆盖，但是有继承规则，子组件会继承父组件相同类名的css属性。即子组件存在就拿子组件，不存在就拿父组件。
@@ -424,6 +426,12 @@
     >   Vue用一个 `queue` 收集依赖的执行，在下次微任务执行的时候统一执行 `queue` 中的 `Watcher` 的 `run` 操作，与此同时，相同 `id` 的 `watcher` 不会重复添加到 `queue` 中，因此也不会重复执行多次的视图渲染
     >
     >   --《深入浅出Vue源码》
+
++	Vue模板可访问的白名单全局变量
+	+ 'Infinity,undefined,NaN,isFinite,isNaN,' 
+    'parseFloat,parseInt,decodeURI,decodeURIComponent,encodeURI,encodeURIComponent,' 
+    'Math,Number,Date,Array,Object,Boolean,String,RegExp,Map,Set,JSON,Intl,' 
+    'require' 
 
 +   事件循环机制
 
