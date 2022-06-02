@@ -425,16 +425,20 @@ header, .context-menu, .megamenu-content, footer{
 }
 
 strong::before{
-content: ' ' 
+	content: ' ' 
 }
 
 strong::after{
-content:' '
+	content: ' '
 }
 
-strong{
-color:rgb(128,0,32);
-font-weight:bold;
+strong {
+	color: rgb(128,0,32);
+	font-weight: bold;
 }
 
-
+img {
+	box-shadow: 0 0 10px 5px lightgrey !important;
+	border-radius: 10px !important;
+	margin: 20px auto !important;
+}
