@@ -40,18 +40,11 @@
 
 html {
     font-size: 16px;
-<<<<<<< HEAD
-}
-
-body {
-    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-=======
     -webkit-font-smoothing: antialiased;
 }
 
 body {
     font-family:'PingFang HK Regular', "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
     color: rgb(51, 51, 51);
     line-height: 1.6;
 }
@@ -68,23 +61,6 @@ body {
 		max-width: 1024px;
 	}
 }
-
-<<<<<<< HEAD
-strong::before {
-	content:' '
-}
-
-strong {
-	color: #BC2308;
-	font-weight:normal;
-}
-
-strong::after {
-	content:' '
-}
-
-=======
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
 @media only screen and (min-width: 1800px) {
 	#write {
 		max-width: 1200px;
@@ -111,10 +87,6 @@ h6 {
     font-weight: bold;
     line-height: 1.4;
     cursor: text;
-<<<<<<< HEAD
-	color: #0000FF !important;
-=======
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
 }
 h1:hover a.anchor,
 h2:hover a.anchor,
@@ -157,10 +129,7 @@ h2 {
     font-size: 1.75em;
     line-height: 1.225;
     border-bottom: 1px solid #eee;
-<<<<<<< HEAD
-=======
 	color: rgb(26,85,153);
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
 }
 
 /*@media print {
@@ -183,21 +152,6 @@ h2 {
 h3 {
     font-size: 1.5em;
     line-height: 1.43;
-<<<<<<< HEAD
-	color: #012EA5 !important;
-}
-h4 {
-    font-size: 1.25em;
-	color: #012EA5 !important;
-}
-h5 {
-    font-size: 1em;
-	color: #012EA5 !important;
-}
-h6 {
-   font-size: 1em;
-	color: #012EA5 !important;
-=======
 }
 h4 {
     font-size: 1.25em;
@@ -208,7 +162,6 @@ h5 {
 h6 {
    font-size: 1em;
     color: #777;
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
 }
 p,
 blockquote,
@@ -260,11 +213,7 @@ table {
     word-break: initial;
 }
 table tr {
-<<<<<<< HEAD
-    border-top: 1px solid #dfe2e5;
-=======
     border: 1px solid #dfe2e5;
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
     margin: 0;
     padding: 0;
 }
@@ -314,17 +263,8 @@ tt {
 }
 
 code {
-<<<<<<< HEAD
-    background-color: white;
-    padding: 5px !important;
-	margin-left: 2px;
-	margin-right:2px;
-	color: #012EA5;
-	border: 1px solid #012EA5;
-=======
     background-color: #f3f4f4;
     padding: 0 2px 0 2px;
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
 }
 
 .md-fences {
@@ -366,14 +306,11 @@ code {
     margin-top: 0 !important;
 }
 
-<<<<<<< HEAD
-=======
 pre {
 	font-size: 15px !important;
 	font-weight: bold !important;
 }
 
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
 .mathjax-block>.code-tooltip {
 	bottom: .375rem;
 }
@@ -437,17 +374,12 @@ pre {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
 
-<<<<<<< HEAD
-header, .context-menu, .megamenu-content, footer{
-    font-family: "Segoe UI", "Arial", sans-serif;
-=======
 * {
     font-family: 'PingFang HK Regular', "Segoe UI", "Arial", sans-serif !important;
 }
 
 header, .context-menu, .megamenu-content, footer{
     font-family: 'PingFang HK Regular', "Segoe UI", "Arial", sans-serif;
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
 }
 
 .file-node-content:hover .file-node-icon,
@@ -464,26 +396,16 @@ header, .context-menu, .megamenu-content, footer{
     color: #b4654d;
 }
 
-<<<<<<< HEAD
 .html-for-mac .context-menu {
     --item-hover-bg-color: #E6F0FE;
 }
-=======
-/*.html-for-mac {
-    --item-hover-bg-color: #E6F0FE;
-}*/
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
-
 #md-notification .btn {
     border: 0;
 }
 
 .dropdown-menu .divider {
     border-color: #e5e5e5;
-<<<<<<< HEAD
-=======
     opacity: 0.4;
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
 }
 
 .ty-preferences .window-content {
@@ -494,8 +416,6 @@ header, .context-menu, .megamenu-content, footer{
     color: white;
     background: #999;
 }
-<<<<<<< HEAD
-=======
 
 .menu-item-container a.menu-style-btn {
     background-color: #f5f8fa;
@@ -520,4 +440,3 @@ img {
 	border-radius: 10px !important;
 	margin: 20px auto !important;
 }
->>>>>>> 2f553f067a6fcc598960d2bab82bd5482f01d679
