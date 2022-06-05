@@ -262,8 +262,10 @@ tt {
 }
 
 code {
-    background-color: #f3f4f4;
+    background-color: white;
     padding: 4px;
+	color: #758e61;
+	border: 1px solid #758e61;
 }
 
 .md-fences {
