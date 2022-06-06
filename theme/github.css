@@ -1,3 +1,4 @@
+
 :root {
     --side-bar-bg-color: #fafafa;
     --control-text-color: #777;
@@ -61,7 +62,6 @@ body {
 		max-width: 1024px;
 	}
 }
-
 @media only screen and (min-width: 1800px) {
 	#write {
 		max-width: 1200px;
@@ -258,14 +258,15 @@ tt {
     border: 1px solid #e7eaed;
     background-color: #f8f8f8;
     border-radius: 3px;
-    padding: 0;
     padding: 2px 4px 0px 4px;
     font-size: 0.9em;
 }
 
 code {
-    background-color: #f3f4f4;
-    padding: 0 2px 0 2px;
+    background-color: white;
+    padding: 4px;
+	color: #758e61;
+	border: 1px solid #758e61;
 }
 
 .md-fences {
@@ -397,10 +398,9 @@ header, .context-menu, .megamenu-content, footer{
     color: #b4654d;
 }
 
-/*.html-for-mac {
+.html-for-mac .context-menu {
     --item-hover-bg-color: #E6F0FE;
-}*/
-
+}
 #md-notification .btn {
     border: 0;
 }
@@ -440,5 +440,5 @@ strong {
 img {
 	box-shadow: 0 0 10px 5px lightgrey !important;
 	border-radius: 10px !important;
-	margin: 20px auto !important;
+	margin: 10px auto !important;
 }
