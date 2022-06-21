@@ -421,14 +421,6 @@ img {
 }
 
 /** color **/
-blockquote {
-    border-left: 5px solid #56aea3 !important;
-    border: 1px solid #56aea3 ;
-    padding: 5px 15px;
-    border-right: 5px solid #56aea3 !important;
-}
-
-/** color **/
 code {
 	background-color: #fd0070;
 	padding: 0 4px;
@@ -451,4 +443,14 @@ h2 {
 	color: #fd8d00;
 }
 
-
+/** color **/
+blockquote {
+    border-left: 5px solid #56aea3 !important;
+    border: 1px solid #56aea3;
+    padding: 5px 15px;
+    text-decoration: underline;
+    line-height: 2;
+    text-underline-offset: 5px;
+    text-decoration-color: #56aea3;
+    border-right: 5px solid #56aea3 !important;
+}
