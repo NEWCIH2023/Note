@@ -414,12 +414,6 @@ strong {
 	font-weight: bold;
 }
 
-img {
-	box-shadow: 0 0 10px 5px lightgrey !important;
-	border-radius: 10px !important;
-	margin: 10px auto !important;
-}
-
 /** color **/
 code {
 	background-color: #fd0070;
@@ -448,9 +442,5 @@ blockquote {
     border-left: 5px solid #56aea3 !important;
     border: 1px solid #56aea3;
     padding: 5px 15px;
-    text-decoration: underline;
-    line-height: 2;
-    text-underline-offset: 5px;
-    text-decoration-color: #56aea3;
     border-right: 5px solid #56aea3 !important;
 }
