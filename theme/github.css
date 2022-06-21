@@ -408,8 +408,9 @@ strong::after{
 	content: ' '
 }
 
+/** color **/
 strong {
-	color: #e96d29;
+	color: #8d00fd;
 	font-weight: bold;
 }
 
@@ -419,19 +420,21 @@ img {
 	margin: 10px auto !important;
 }
 
+/** color **/
 blockquote {
-    border-left: 5px solid #ff9b6a !important;
-    border: 1px solid #ff9b6a ;
+    border-left: 5px solid #56aea3 !important;
+    border: 1px solid #56aea3 ;
     padding: 5px 15px;
-    border-right: 5px solid #ff9b6a !important;
+    border-right: 5px solid #56aea3 !important;
 }
 
+/** color **/
 code {
-	background-color: #f1707d;
+	background-color: #fd0070;
 	padding: 0 4px;
 	color: 	white;
 	font-weight:bold;
-	border: 1px solid #f1707d;
+	border: 1px solid #fd0070;
 }
 
 h1 {
@@ -439,11 +442,13 @@ h1 {
     line-height: 1.2;
     border-bottom: 1px solid #eee;
 }
+
+/** color **/
 h2 {
     font-size: 1.75em;
     line-height: 1.225;
     border-bottom: 1px solid #eee;
-	color: #b8d38f;
+	color: #fd8d00;
 }
 
 
