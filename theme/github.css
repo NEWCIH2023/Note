@@ -444,3 +444,8 @@ blockquote {
     padding: 5px 15px;
     border-right: 5px solid #56aea3 !important;
 }
+
+del {
+	color:red
+}
+
