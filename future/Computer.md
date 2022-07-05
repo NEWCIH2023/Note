@@ -2843,6 +2843,36 @@
 
 ## 总线标准
 
+### 常见的总线标准
+
++ 典型的总线标准有**ISA、EISA、VESA、PCI、PCI-Express、AGP、RS-232C、USB**等。它们的主要区别是**总线宽度、带宽、时钟频率、寻址能力、是否支持突发传送**等
++ `ISA`（**Industry Standard Architecture**， 工业标准体系结构）
+  + 最早出现的微型计算机的系统总线，应用在IBM的AT机上
++ `EISA`（**Extended Industry Standard Architecture**，扩展的ISA）
+  + 总线是为配合**32**位CPU而设计的扩展总线，EISA对ISA**完全兼容**
++ `VESA`（**Video Electronic Standard Association**，视频电子标准协会）
+  + 是一个**32**位标准的计算机局部总线，是针对多媒体PC要求高速传送活动图像的**大量数据**应运而生的
++ `PCI`（**Peripheral Component Interconnect**，外部设备互连）
+  + 是高性能的**32**位或**64**位总线，专为高度集成的**外围部件**、**扩充插板**和**处理器/存储器系统**设计的互连机制。
+    + 目前常用的PCI适配器有**显卡、声卡、网卡**等
+  + PCI总线支持**即插即用**，是一个与处理器**时钟频率**无关的高速外围总线，属于**局部总线**，可通过桥连接实现多层PCI总线
++ `PCI-Express`（**PCI-E**）
+  + 最新的总线和接口标准，将全面取代现行的PCI和AGP，最终统一总线标准
++ `AGP`（**Accelerated Graphics Port**，加速图形接口）
+  + 视频接口标准，专用于连接**主存**和**图形存储器**，属于**局部总线**。AGP技术为传输视频和三维图形数据提高了切实可行的解决方案
++ `RS-232C`（**Recommended Standard**，RS）
+  + 美国电子工业协会（EIA）推荐的一种串行通信总线，是应用于串行二进制交换的**数据终端设备**（DTE）和**数据通信设备**（DCE）之间的标准接口
++ `USB`（**Universal Serial Bus**，通用串行总线）
+  + 一种连接**外部设备**的I/O总线，属于**设备总线**。具有**即插即用、热插拔**等优点，有很强的连接能力
++ `PCMCIA`（**Personal Computer Memory Card International Association**）
+  + 广泛应用于**笔记本电脑**的一种接口标准，是一个用于扩展功能的小型插槽，能**即插即用**
++ `IDE`（**Integrated Drive Electronics**，集成设备电路）
+  + 又称**ATA**，是一种IDE接口**磁盘驱动器接口类型**，硬盘和光驱通过IDE接口与主板连接
++ `SCSI`（**Small Computer System Interface**，小型计算机系统接口）
+  + 一种用于**计算机**和**智能设备**之间（硬盘、软驱、光驱、打印机等）系统级接口的独立处理器标准。SCSI是一种智能的通用接口标准
++ `SATA`（**Serial Advanced Technology Attachment**，串行高级技术附件）
+  + 一种基于行业标准的串行硬件驱动器接口，是由Intel、IBM、Dell、APT、Maxtor、Seagate公司共同提出的的硬盘接口规范
+
 ## 总结
 
 # 输入/输出系统
