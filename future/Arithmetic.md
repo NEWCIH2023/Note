@@ -224,6 +224,8 @@ typedef struct Linknode {
 
 
 
+
+
 # 串
 ## 串的定义和实现
 ## 串的模式匹配
