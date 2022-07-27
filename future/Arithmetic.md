@@ -242,7 +242,8 @@ typedef struct Linknode {
     + 元素**$a_{i,j}$**在数组B中的下标**$k=1+2+\dots+(i-1)+j-1 = i(i-1)/2 + j-1$**，数组下标从**0**开始，因此，元素下标之间的对应关系如下
       $$
       k= \begin{cases}
-      
+      \frac{i(i-1)}{2}+j-1, i \ge j (下三角区和主对角线元素) \newline
+      \frac{j(j-1)}{2}+i-1, i \lt j (上三角区元素 a_{ij} = a_{ji})
       \end{cases}
       $$
       
