@@ -329,12 +329,11 @@ pre {
 }
 
 * {
-    font-family: 'PingFang HK Regular', "Segoe UI", "Arial", sans-serif !important;
+    font-family: '公众号犬神志 Regular', "Segoe UI", "Arial", sans-serif !important;
 }
 
 @media screen and (max-width: 1920px) {
 	* {
-		font-weight: bold !important;
 	}
 }
 
@@ -393,15 +392,14 @@ strong::after{
 /** color **/
 strong {
 	color: #8d00fd;
-	font-weight: bold;
+	font-weight: bold !important;
 }
 
 /** color **/
 code {
 	background-color: #fd0070;
-	padding: 0 4px;
+	padding: 4px;
 	color: 	white;
-	font-weight:bold;
 	border: 1px solid #fd0070;
 }
 
