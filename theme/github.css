@@ -51,7 +51,6 @@ h6 {
     position: relative;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    font-weight: bold;
     line-height: 1.4;
     cursor: text;
 }
@@ -155,7 +154,6 @@ thead {
     background-color: #f8f8f8;
 }
 table th {
-    font-weight: bold;
     border: 1px solid #dfe2e5;
     border-bottom: 0;
     margin: 0;
@@ -234,7 +232,6 @@ tt {
 
 pre {
 	font-size: 15px !important;
-	font-weight: bold !important;
 }
 
 .mathjax-block>.code-tooltip {
@@ -363,7 +360,6 @@ strong::after{
 /** color **/
 strong {
 	color: #8d00fd;
-	font-weight: bold !important;
 }
 
 /** color **/
