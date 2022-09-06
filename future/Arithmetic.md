@@ -1595,7 +1595,26 @@ typedef struct Linknode {
 
       1. 假设G={V, E}是连通图，其最小生成树T=（U，$E_T$)，$E_T$是最小生成树中边的集合
       2. 初始化：向空树T=（U, $E_T$)中添加图G=（V，E）的任一顶点$u_0$，使U={$u_0$}，$E_T= \empty$
-      3. 循环（重复下列操作直至U=V）：从图G中选择满足{(u, v) | $u \in U, v \in V-U$}且具有最小权值的边（u，v），加入树T，置U=U $\bigcup$ {v}，
+      3. 循环（重复下列操作直至U=V）：从图G中选择满足{(u, v) | $u \in U, v \in V-U$}且具有最小权值的边（u，v），加入树T，置U=U $\bigcup$ {v}，$E_T=E_T \cup {(u, v)}$
+
+   4. 简单实现如下
+
+      ```c
+      void Prim(G, T) {
+        T = NULL;
+        U = {w};
+        
+        while( (V-U) != NULL ) {
+            设（u，v）是使u属于U与v属于(V-U)，且权值最小的边
+            // 边归入树
+            T = T U {(u, v)};
+            // 顶点归入树
+          	U = U U {v};
+        }
+      }
+      ```
+
+   5. Prim算法的时间复杂度
 
 # 查找
 
