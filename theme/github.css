@@ -374,6 +374,7 @@ h1 {
     font-size: 2.25em;
     line-height: 1.2;
     border-bottom: 1px solid #eee;
+	color: rgb(39,117,182);
 }
 
 /** color **/
@@ -384,9 +385,13 @@ h2 {
 	color: #fd8d00;
 }
 
+h3{
+	color: rgb(18,161,130);
+}
+
 /** color **/
 blockquote {
-    border-left: 5px solid #56aea3 !important;
+		border-left: 5px solid #56aea3 !important;
     border: 1px solid #56aea3;
     padding: 5px 15px;
     border-right: 5px solid #56aea3 !important;
@@ -396,3 +401,6 @@ del {
 	color:red
 }
 
+li::marker{
+color: rgb(238,72,102) !important;
+}
