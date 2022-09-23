@@ -19,8 +19,7 @@ body {
 #write {
     max-width: 860px;
   	margin: 0 auto;
-  	padding: 30px;
-    padding-bottom: 100px;
+  	padding: 30px !important;
 }
 
 @media only screen and (min-width: 1400px) {
@@ -297,7 +296,6 @@ pre {
 
 * {
     font-family: '公众号犬神志 Regular','公众号-犬神志 Regular', "Segoe UI", "Arial", sans-serif !important;
-	font-weight: normal !important;
 }
 
 @media screen and (max-width: 1920px) {
@@ -360,6 +358,7 @@ strong::after{
 /** color **/
 strong {
 	color: #8d00fd;
+	font-weight: bold !important;
 }
 
 /** color **/
