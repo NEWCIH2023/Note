@@ -296,6 +296,7 @@ pre {
 
 * {
     font-family: '公众号犬神志 Regular','公众号-犬神志 Regular', "Segoe UI", "Arial", sans-serif !important;
+	font-weight: bold !important;
 }
 
 @media screen and (max-width: 1920px) {
