@@ -1,4 +1,5 @@
 
+
 :root {
     --side-bar-bg-color: #fafafa;
     --control-text-color: #777;
@@ -293,12 +294,6 @@ pre {
 .on-focus-mode blockquote {
     border-left-color: rgba(85, 85, 85, 0.12);
 }
-
-* {
-    font-family: '公众号犬神志 Regular','公众号-犬神志 Regular', "Segoe UI", "Arial", sans-serif !important;
-	font-weight: bold !important;
-}
-
 @media screen and (max-width: 1920px) {
 	* {
 	}
@@ -365,7 +360,7 @@ strong {
 /** color **/
 code {
 	background-color: #fd0070;
-	padding: 4px;
+	padding: 1px 4px;
 	color: 	white;
 	border: 1px solid #fd0070;
 }
@@ -404,3 +399,14 @@ del {
 li::marker{
 color: rgb(238,72,102) !important;
 }
+
+em {
+color: #207f4c !important;
+}
+
+* {
+    font-family: '苹方-港', "Segoe UI", "Arial", sans-serif !important;
+	font-weight: bold !important;
+}
+
+
