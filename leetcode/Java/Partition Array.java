@@ -1,0 +1,87 @@
+M
+1527814146
+tags: Array, Two Pointers, Quick Sort, Sort
+
+给一串数字, 和 int k. 根据k的值partition array, 找到第一个i, nums[i] >= k.
+
+#### Two Pointer
+- Quick sort的基础. 
+- Partition Array根据pivot把array分成两半。
+- 从array两边开始缩进。while loop到遍历完。非常直白的implement。
+- 注意low/high,或者叫start/end不要越边界
+- O(n)
+- 注意: 这里第二个inner while `while(low <= high && nums[high] >= pivot) {..}` 采用了 `nums[high] >= pivot`
+- 原因是题目要找第一个nums[i] >= k, 也就是说, 即便是nums[i]==k也应该swap到前面去
+- 这个跟quick sort 原题有一点点不一样.
+
+
+```
+/*
+Given an array nums of integers and an int k, 
+partition the array (i.e move the elements in "nums") such that:
+
+All elements < k are moved to the left
+All elements >= k are moved to the right
+Return the partitioning index, i.e the first index i nums[i] >= k.
+
+Example
+If nums=[3,2,2,1] and k=2, a valid answer is 1.
+
+Note
+You should do really partition in array nums 
+instead of just counting the numbers of integers smaller than k.
+
+If all elements in nums are smaller than k, then return nums.length
+
+Challenge
+Can you partition the array in-place and in O(n)?
+
+Tags Expand 
+Two Pointers Sort Array
+
+Thoughts:
+Two pointer sort, still similar to quick sort.
+Move small to left and large to right.
+When the two pinter meets, that's crossing point about pivot k
+
+*/
+public class Solution {
+    /** 
+     *@param nums: The integer array you should partition
+     *@param k: As description
+     *return: The index after partition
+     */
+    public int partitionArray(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        return helper(nums, 0, nums.length - 1, k);
+    }
+
+    public void swap(int[] nums, int x, int y){
+        int temp = nums[x];
+        nums[x] = nums[y];
+        nums[y] = temp;
+    }
+    
+    public int helper(int[] nums, int start, int end, int pivot) {
+        int low = start;
+        int high = end;
+        while (low <= high) {
+            while(low <= high && nums[low] < pivot) {
+                low++;
+            }
+            while(low <= high && nums[high] >= pivot) {
+                high--;
+            }
+            if (low <= high) {
+                swap(nums, low, high);
+                low++;
+                high--;
+            }
+        }
+        return low;
+    }
+}
+
+```
