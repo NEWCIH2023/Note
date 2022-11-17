@@ -2,8 +2,6 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
-import UndergroundSystem.station;
-
 public class 灯泡开关 {
     public static void main(String[] args) {
         灯泡开关 s = new 灯泡开关();
