@@ -1,3 +1,7 @@
+import java.util.Arrays;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
 public class 去除重复的字母 {
     public static void main(String[] args) {
         去除重复的字母 s = new 去除重复的字母();
@@ -5,28 +9,29 @@ public class 去除重复的字母 {
     }
 
     public String removeDuplicateLetters(String s) {
-        int[] flag = new int[128];
-        boolean[] result = new boolean[s.length()];
+        char currentChar = s.charAt(0);
+        int[] allCharR = new int[128];
 
-        for (int i = 0; i < flag.length; i++) {
-            flag[i] = -1;
+        for (int i = 0; i < allCharR.length; i++) {
+            allCharR[i] = -1;
         }
 
         for (int i = 0; i < s.length(); i++) {
-            if (flag[s.charAt(i)] != -1) {
-                for (char index = 'a'; index <= 'z'; index++) {
-                    if (flag[index] < i) {
-                        if (index > s.charAt(i)) {
-                            result[i] = true;
-                            break;
-                        }
-                    }
+            currentChar = s.charAt(i);
+            if (allCharR[currentChar] != -1) {
+                char temp = s.charAt(allCharR[currentChar] + 1);
+                if (temp < currentChar) {
+                    allCharR[currentChar] = i;
                 }
             } else {
-                flag[s.charAt(i)] = i;
+                allCharR[currentChar] = i;
             }
         }
 
-        return s;
+        return Arrays.stream(allCharR)
+                .sorted()
+                .filter(i -> i != -1)
+                .mapToObj(i -> s.charAt(i) + "")
+                .collect(Collectors.joining());
     }
 }
