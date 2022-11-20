@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ce385e91-de99-4e13-9d76-ab57b6a23494" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/[0674][Longest Continuous Increasing Subsequence]/[0674][Longest Continuous Increasing Subsequence].iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/[0674][Longest Continuous Increasing Subsequence]/src/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/[0674][Longest Continuous Increasing Subsequence]/src/SolutionTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/[0680][Valid Palindrome II]/[0680][Valid Palindrome II].iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/[0680][Valid Palindrome II]/src/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/[0682][Baseball Game]/[0682][Baseball Game].iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/[0682][Baseball Game]/src/Solution.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/[0682][Baseball Game]/src/SolutionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" path="" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="1diQ0TR3WBzzDmLO9X2QBaTgnNM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="GO_FMT" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="14" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/[0590][N-ary Tree postorder Traversal]/src" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.124843955" />
+    <property name="project.structure.side.proportion" value="0.29248658" />
+    <property name="scala_project_settings_configurable.last_selected_tab_index" value="0" />
+    <property name="settings.editor.selected.configurable" value="editing.templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/[0463][Island Perimeter]/src" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/[0590][N-ary Tree postorder Traversal]/src" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SolutionTest.calPoints">
+    <configuration name="SolutionTest.calPoints" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="[0682][Baseball Game]" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolutionTest" />
+      <option name="METHOD_NAME" value="calPoints" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolutionTest.checkPossibility" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="[0665][Non-decreasing Array]" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolutionTest" />
+      <option name="METHOD_NAME" value="checkPossibility" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolutionTest.findLengthOfLCIS" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="[0674][Longest Continuous Increasing Subsequence]" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolutionTest" />
+      <option name="METHOD_NAME" value="findLengthOfLCIS" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolutionTest.findSecondMinimumValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="[0671][Second Minimum Node In a Binary Tree]" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolutionTest" />
+      <option name="METHOD_NAME" value="findSecondMinimumValue" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SolutionTest.imageSmoother" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="[0661][Image Smoother]" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SolutionTest" />
+      <option name="METHOD_NAME" value="imageSmoother" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BSP.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="JUnit.SolutionTest.imageSmoother" />
+      <item itemvalue="JUnit.SolutionTest.checkPossibility" />
+      <item itemvalue="JUnit.SolutionTest.findSecondMinimumValue" />
+      <item itemvalue="JUnit.SolutionTest.findLengthOfLCIS" />
+      <item itemvalue="JUnit.SolutionTest.calPoints" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SolutionTest.calPoints" />
+        <item itemvalue="JUnit.SolutionTest.findLengthOfLCIS" />
+        <item itemvalue="JUnit.SolutionTest.findSecondMinimumValue" />
+        <item itemvalue="JUnit.SolutionTest.checkPossibility" />
+        <item itemvalue="JUnit.SolutionTest.imageSmoother" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",ALPHA_COMPARATOR,VISIBILITY_SORTER" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce385e91-de99-4e13-9d76-ab57b6a23494" name="Default Changelist" comment="" />
+      <created>1538116956860</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1538116956860</updated>
+      <workItem from="1538116958404" duration="7602000" />
+      <workItem from="1539045600643" duration="7571000" />
+      <workItem from="1539136490909" duration="8302000" />
+      <workItem from="1539160527208" duration="5603000" />
+      <workItem from="1539238991597" duration="1000" />
+      <workItem from="1539323144306" duration="2116000" />
+      <workItem from="1542352579209" duration="3254000" />
+      <workItem from="1560348904749" duration="7463000" />
+      <workItem from="1560420134609" duration="1182000" />
+      <workItem from="1560465634862" duration="2046000" />
+      <workItem from="1560476218710" duration="1262000" />
+      <workItem from="1560478110092" duration="400000" />
+      <workItem from="1560478519238" duration="240000" />
+      <workItem from="1560478762862" duration="30043000" />
+      <workItem from="1560653726531" duration="13721000" />
+      <workItem from="1560752854270" duration="24293000" />
+      <workItem from="1560861984641" duration="32459000" />
+      <workItem from="1561112879442" duration="2002000" />
+      <workItem from="1561124571926" duration="11932000" />
+      <workItem from="1561369053923" duration="4663000" />
+      <workItem from="1561460799551" duration="3462000" />
+      <workItem from="1561557253672" duration="5130000" />
+      <workItem from="1561599288349" duration="1000" />
+      <workItem from="1561599351344" duration="276000" />
+      <workItem from="1561631303138" duration="3384000" />
+      <workItem from="1561703772713" duration="19684000" />
+      <workItem from="1561879881864" duration="12267000" />
+      <workItem from="1562030690114" duration="10765000" />
+      <workItem from="1562096602663" duration="12221000" />
+      <workItem from="1562135688639" duration="10303000" />
+      <workItem from="1562202444518" duration="120000" />
+      <workItem from="1562411442857" duration="15108000" />
+      <workItem from="1562582123812" duration="5644000" />
+      <workItem from="1562641658772" duration="535000" />
+      <workItem from="1562658774825" duration="11207000" />
+      <workItem from="1562718103934" duration="22830000" />
+      <workItem from="1562853743876" duration="3513000" />
+      <workItem from="1592905214169" duration="3698000" />
+      <workItem from="1592917353315" duration="5231000" />
+      <workItem from="1592990527553" duration="12346000" />
+      <workItem from="1593302168737" duration="873000" />
+      <workItem from="1593349299733" duration="565000" />
+      <workItem from="1593350828804" duration="1737000" />
+      <workItem from="1593386208975" duration="9188000" />
+      <workItem from="1593474505742" duration="5061000" />
+      <workItem from="1593492568375" duration="770000" />
+      <workItem from="1593564530445" duration="24000" />
+      <workItem from="1593564572043" duration="2267000" />
+      <workItem from="1593647589537" duration="5696000" />
+      <workItem from="1593741566759" duration="56000" />
+      <workItem from="1593741641747" duration="4341000" />
+      <workItem from="1593846317598" duration="19196000" />
+      <workItem from="1593994138409" duration="4028000" />
+      <workItem from="1594083345639" duration="3237000" />
+      <workItem from="1594096965599" duration="847000" />
+    </task>
+    <task id="LOCAL-00040" summary="commit">
+      <created>1560552440693</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1560552440693</updated>
+    </task>
+    <task id="LOCAL-00041" summary="commit">
+      <created>1560553720936</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1560553720936</updated>
+    </task>
+    <task id="LOCAL-00042" summary="commit">
+      <created>1560578905864</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1560578905864</updated>
+    </task>
+    <task id="LOCAL-00043" summary="commit">
+      <created>1560740668169</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1560740668169</updated>
+    </task>
+    <task id="LOCAL-00044" summary="commit">
+      <created>1560770441688</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1560770441688</updated>
+    </task>
+    <task id="LOCAL-00045" summary="commit">
+      <created>1560826447783</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1560826447783</updated>
+    </task>
+    <task id="LOCAL-00046" summary="commit">
+      <created>1560861999518</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1560861999518</updated>
+    </task>
+    <task id="LOCAL-00047" summary="commit">
+      <created>1560952045089</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1560952045089</updated>
+    </task>
+    <task id="LOCAL-00048" summary="commit">
+      <created>1561124592731</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1561124592732</updated>
+    </task>
+    <task id="LOCAL-00049" summary="commit">
+      <created>1561243847752</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1561243847752</updated>
+    </task>
+    <task id="LOCAL-00050" summary="commit">
+      <created>1561271447940</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1561271447941</updated>
+    </task>
+    <task id="LOCAL-00051" summary="commit">
+      <created>1561275450672</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1561275450673</updated>
+    </task>
+    <task id="LOCAL-00052" summary="commit">
+      <created>1561275723339</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1561275723339</updated>
+    </task>
+    <task id="LOCAL-00053" summary="commit">
+      <created>1561275871683</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1561275871683</updated>
+    </task>
+    <task id="LOCAL-00054" summary="commit">
+      <created>1561346644159</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1561346644160</updated>
+    </task>
+    <task id="LOCAL-00055" summary="commit">
+      <created>1561383166917</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1561383166917</updated>
+    </task>
+    <task id="LOCAL-00056" summary="commit">
+      <created>1561501704159</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1561501704161</updated>
+    </task>
+    <task id="LOCAL-00057" summary="commit">
+      <created>1561557291820</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1561557291820</updated>
+    </task>
+    <task id="LOCAL-00058" summary="commit">
+      <created>1561558937387</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1561558937387</updated>
+    </task>
+    <task id="LOCAL-00059" summary="commit">
+      <created>1561559322984</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1561559322984</updated>
+    </task>
+    <task id="LOCAL-00060" summary="commit">
+      <created>1561588132148</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1561588132149</updated>
+    </task>
+    <task id="LOCAL-00061" summary="commit">
+      <created>1561589039263</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1561589039263</updated>
+    </task>
+    <task id="LOCAL-00062" summary="commit">
+      <created>1561589568459</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1561589568459</updated>
+    </task>
+    <task id="LOCAL-00063" summary="commit">
+      <created>1561726238525</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1561726238526</updated>
+    </task>
+    <task id="LOCAL-00064" summary="commit">
+      <created>1561813424767</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1561813424767</updated>
+    </task>
+    <task id="LOCAL-00065" summary="commit">
+      <created>1561874014119</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1561874014119</updated>
+    </task>
+    <task id="LOCAL-00066" summary="commit">
+      <created>1561875043413</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1561875043413</updated>
+    </task>
+    <task id="LOCAL-00067" summary="commit">
+      <created>1561876074854</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1561876074854</updated>
+    </task>
+    <task id="LOCAL-00068" summary="commit">
+      <created>1561989828558</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1561989828558</updated>
+    </task>
+    <task id="LOCAL-00069" summary="commit">
+      <created>1562096652490</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1562096652491</updated>
+    </task>
+    <task id="LOCAL-00070" summary="commit">
+      <created>1562098060496</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1562098060496</updated>
+    </task>
+    <task id="LOCAL-00071" summary="commit">
+      <created>1562099083958</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1562099083958</updated>
+    </task>
+    <task id="LOCAL-00072" summary="commit">
+      <created>1562156421698</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1562156421698</updated>
+    </task>
+    <task id="LOCAL-00073" summary="commit">
+      <created>1562158877596</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1562158877596</updated>
+    </task>
+    <task id="LOCAL-00074" summary="commit">
+      <created>1562160452469</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1562160452469</updated>
+    </task>
+    <task id="LOCAL-00075" summary="commit">
+      <created>1562201817392</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1562201817392</updated>
+    </task>
+    <task id="LOCAL-00076" summary="commit">
+      <created>1562412581818</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1562412581819</updated>
+    </task>
+    <task id="LOCAL-00077" summary="commit">
+      <created>1562414319581</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1562414319581</updated>
+    </task>
+    <task id="LOCAL-00078" summary="commit">
+      <created>1562418777061</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1562418777062</updated>
+    </task>
+    <task id="LOCAL-00079" summary="commit">
+      <created>1562469798363</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1562469798363</updated>
+    </task>
+    <task id="LOCAL-00080" summary="commit">
+      <created>1562474246972</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1562474246972</updated>
+    </task>
+    <task id="LOCAL-00081" summary="commit">
+      <created>1562590389745</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1562590389745</updated>
+    </task>
+    <task id="LOCAL-00082" summary="commit">
+      <created>1562591647675</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1562591647675</updated>
+    </task>
+    <task id="LOCAL-00083" summary="commit">
+      <created>1562677843655</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1562677843657</updated>
+    </task>
+    <task id="LOCAL-00084" summary="commit">
+      <created>1562681707711</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1562681707711</updated>
+    </task>
+    <task id="LOCAL-00085" summary="commit">
+      <created>1562736646315</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1562736646315</updated>
+    </task>
+    <task id="LOCAL-00086" summary="commit">
+      <created>1562737206620</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1562737206620</updated>
+    </task>
+    <task id="LOCAL-00087" summary="commit">
+      <created>1562738633183</created>
+      <option name="number" value="00087" />
+      <option name="presentableId" value="LOCAL-00087" />
+      <option name="project" value="LOCAL" />
+      <updated>1562738633183</updated>
+    </task>
+    <task id="LOCAL-00088" summary="commit">
+      <created>1562853795057</created>
+      <option name="number" value="00088" />
+      <option name="presentableId" value="LOCAL-00088" />
+      <option name="project" value="LOCAL" />
+      <updated>1562853795057</updated>
+    </task>
+    <option name="localTasksCounter" value="89" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="208" y="31" key="#Project_Structure" timestamp="1593390815779">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="208" y="31" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1593390815779" />
+    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1593651681333">
+      <screen x="43" y="23" width="1397" height="877" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1440.900@0.0.1440.900" timestamp="1593391139304" />
+    <state x="100" y="100" width="1240" height="700" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/43.23.1397.877@43.23.1397.877" timestamp="1593651681333" />
+    <state x="533" y="165" key="#com.intellij.ide.util.MemberChooser" timestamp="1593387493079">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="533" y="165" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1593387493079" />
+    <state x="1921" y="215" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog" timestamp="1592906253060">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1921" y="215" key="#com.intellij.openapi.keymap.impl.ui.EditKeymapsDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1592906253060" />
+    <state width="1397" height="286" key="GridCell.Tab.0.bottom" timestamp="1594102147278">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1397" height="286" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594085022386" />
+    <state width="1397" height="286" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594102147278" />
+    <state width="1877" height="402" key="GridCell.Tab.0.bottom/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593746004768" />
+    <state width="1397" height="202" key="GridCell.Tab.0.bottom/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1593569123893" />
+    <state width="1877" height="365" key="GridCell.Tab.0.bottom/1440.23.1920.1057/41.23.1399.877@1440.23.1920.1057" timestamp="1593744735334" />
+    <state width="1397" height="324" key="GridCell.Tab.0.bottom/1440.23.1920.1057/41.23.1399.877@41.23.1399.877" timestamp="1593655529745" />
+    <state width="1880" height="293" key="GridCell.Tab.0.bottom/1440.23.1920.1057/43.23.1397.877@1440.23.1920.1057" timestamp="1593484682468" />
+    <state width="1880" height="293" key="GridCell.Tab.0.bottom/1440.23.1920.1057/44.23.1396.877@1440.23.1920.1057" timestamp="1593498081570" />
+    <state width="1400" height="273" key="GridCell.Tab.0.bottom/1440.23.1920.1057/44.23.1396.877@44.23.1396.877" timestamp="1593416008024" />
+    <state width="1400" height="251" key="GridCell.Tab.0.bottom/41.23.1399.877@41.23.1399.877" timestamp="1593478824923" />
+    <state width="1359" height="229" key="GridCell.Tab.0.bottom/43.23.1397.877@43.23.1397.877" timestamp="1592951619608" />
+    <state width="678" height="229" key="GridCell.Tab.0.bottom/44.23.1396.877@44.23.1396.877" timestamp="1592952531164" />
+    <state width="1400" height="238" key="GridCell.Tab.0.bottom/52.23.1388.877@52.23.1388.877" timestamp="1593066870420" />
+    <state width="1397" height="286" key="GridCell.Tab.0.center" timestamp="1594102147276">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1397" height="286" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1594085022385" />
+    <state width="1397" height="286" key="GridCell.Tab.0.center/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594102147276" />
+    <state width="1877" height="402" key="GridCell.Tab.0.center/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593746004767" />
+    <state width="1397" height="202" key="GridCell.Tab.0.center/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1593569123892" />
+    <state width="1877" height="365" key="GridCell.Tab.0.center/1440.23.1920.1057/41.23.1399.877@1440.23.1920.1057" timestamp="1593744735330" />
+    <state width="1397" height="324" key="GridCell.Tab.0.center/1440.23.1920.1057/41.23.1399.877@41.23.1399.877" timestamp="1593655529743" />
+    <state width="1880" height="293" key="GridCell.Tab.0.center/1440.23.1920.1057/43.23.1397.877@1440.23.1920.1057" timestamp="1593484682467" />
+    <state width="1880" height="293" key="GridCell.Tab.0.center/1440.23.1920.1057/44.23.1396.877@1440.23.1920.1057" timestamp="1593498081523" />
+    <state width="1400" height="273" key="GridCell.Tab.0.center/1440.23.1920.1057/44.23.1396.877@44.23.1396.877" timestamp="1593416008023" />
+    <state width="1400" height="251" key="GridCell.Tab.0.center/41.23.1399.877@41.23.1399.877" timestamp="1593478824921" />
+    <state width="1359" height="229" key="GridCell.Tab.0.center/43.23.1397.877@43.23.1397.877" timestamp="1592951619608" />
+    <state width="678" height="229" key="GridCell.Tab.0.center/44.23.1396.877@44.23.1396.877" timestamp="1592952531164" />
+    <state width="1400" height="238" key="GridCell.Tab.0.center/52.23.1388.877@52.23.1388.877" timestamp="1593066870418" />
+    <state width="1397" height="286" key="GridCell.Tab.0.left" timestamp="1594102147276">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1397" height="286" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1594085022383" />
+    <state width="1397" height="286" key="GridCell.Tab.0.left/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594102147276" />
+    <state width="1877" height="402" key="GridCell.Tab.0.left/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593746004766" />
+    <state width="1397" height="202" key="GridCell.Tab.0.left/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1593569123891" />
+    <state width="1877" height="365" key="GridCell.Tab.0.left/1440.23.1920.1057/41.23.1399.877@1440.23.1920.1057" timestamp="1593744735322" />
+    <state width="1397" height="324" key="GridCell.Tab.0.left/1440.23.1920.1057/41.23.1399.877@41.23.1399.877" timestamp="1593655529742" />
+    <state width="1880" height="293" key="GridCell.Tab.0.left/1440.23.1920.1057/43.23.1397.877@1440.23.1920.1057" timestamp="1593484682466" />
+    <state width="1880" height="293" key="GridCell.Tab.0.left/1440.23.1920.1057/44.23.1396.877@1440.23.1920.1057" timestamp="1593498081511" />
+    <state width="1400" height="273" key="GridCell.Tab.0.left/1440.23.1920.1057/44.23.1396.877@44.23.1396.877" timestamp="1593416008022" />
+    <state width="1400" height="251" key="GridCell.Tab.0.left/41.23.1399.877@41.23.1399.877" timestamp="1593478824920" />
+    <state width="1359" height="229" key="GridCell.Tab.0.left/43.23.1397.877@43.23.1397.877" timestamp="1592951619607" />
+    <state width="678" height="229" key="GridCell.Tab.0.left/44.23.1396.877@44.23.1396.877" timestamp="1592952531164" />
+    <state width="1400" height="238" key="GridCell.Tab.0.left/52.23.1388.877@52.23.1388.877" timestamp="1593066870417" />
+    <state width="1397" height="286" key="GridCell.Tab.0.right" timestamp="1594102147277">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1397" height="286" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1594085022386" />
+    <state width="1397" height="286" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594102147277" />
+    <state width="1877" height="402" key="GridCell.Tab.0.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593746004767" />
+    <state width="1397" height="202" key="GridCell.Tab.0.right/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1593569123893" />
+    <state width="1877" height="365" key="GridCell.Tab.0.right/1440.23.1920.1057/41.23.1399.877@1440.23.1920.1057" timestamp="1593744735333" />
+    <state width="1397" height="324" key="GridCell.Tab.0.right/1440.23.1920.1057/41.23.1399.877@41.23.1399.877" timestamp="1593655529744" />
+    <state width="1880" height="293" key="GridCell.Tab.0.right/1440.23.1920.1057/43.23.1397.877@1440.23.1920.1057" timestamp="1593484682468" />
+    <state width="1880" height="293" key="GridCell.Tab.0.right/1440.23.1920.1057/44.23.1396.877@1440.23.1920.1057" timestamp="1593498081565" />
+    <state width="1400" height="273" key="GridCell.Tab.0.right/1440.23.1920.1057/44.23.1396.877@44.23.1396.877" timestamp="1593416008023" />
+    <state width="1400" height="251" key="GridCell.Tab.0.right/41.23.1399.877@41.23.1399.877" timestamp="1593478824922" />
+    <state width="1359" height="229" key="GridCell.Tab.0.right/43.23.1397.877@43.23.1397.877" timestamp="1592951619608" />
+    <state width="678" height="229" key="GridCell.Tab.0.right/44.23.1396.877@44.23.1396.877" timestamp="1592952531164" />
+    <state width="1400" height="238" key="GridCell.Tab.0.right/52.23.1388.877@52.23.1388.877" timestamp="1593066870419" />
+    <state width="1397" height="319" key="GridCell.Tab.1.bottom" timestamp="1594088716728">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1397" height="319" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1594084846602" />
+    <state width="1397" height="319" key="GridCell.Tab.1.bottom/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594088716728" />
+    <state width="1877" height="402" key="GridCell.Tab.1.bottom/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593746004770" />
+    <state width="1397" height="202" key="GridCell.Tab.1.bottom/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1593569123896" />
+    <state width="1397" height="324" key="GridCell.Tab.1.bottom/1440.23.1920.1057/41.23.1399.877@41.23.1399.877" timestamp="1593655529748" />
+    <state width="1400" height="273" key="GridCell.Tab.1.bottom/1440.23.1920.1057/44.23.1396.877@44.23.1396.877" timestamp="1593416008027" />
+    <state width="1397" height="319" key="GridCell.Tab.1.center" timestamp="1594088716727">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1397" height="319" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1594084846601" />
+    <state width="1397" height="319" key="GridCell.Tab.1.center/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594088716727" />
+    <state width="1877" height="402" key="GridCell.Tab.1.center/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593746004769" />
+    <state width="1397" height="202" key="GridCell.Tab.1.center/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1593569123895" />
+    <state width="1397" height="324" key="GridCell.Tab.1.center/1440.23.1920.1057/41.23.1399.877@41.23.1399.877" timestamp="1593655529747" />
+    <state width="1400" height="273" key="GridCell.Tab.1.center/1440.23.1920.1057/44.23.1396.877@44.23.1396.877" timestamp="1593416008026" />
+    <state width="1397" height="319" key="GridCell.Tab.1.left" timestamp="1594088716727">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1397" height="319" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1594084846601" />
+    <state width="1397" height="319" key="GridCell.Tab.1.left/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594088716727" />
+    <state width="1877" height="402" key="GridCell.Tab.1.left/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593746004769" />
+    <state width="1397" height="202" key="GridCell.Tab.1.left/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1593569123894" />
+    <state width="1397" height="324" key="GridCell.Tab.1.left/1440.23.1920.1057/41.23.1399.877@41.23.1399.877" timestamp="1593655529746" />
+    <state width="1400" height="273" key="GridCell.Tab.1.left/1440.23.1920.1057/44.23.1396.877@44.23.1396.877" timestamp="1593416008025" />
+    <state width="1397" height="319" key="GridCell.Tab.1.right" timestamp="1594088716728">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1397" height="319" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1594084846602" />
+    <state width="1397" height="319" key="GridCell.Tab.1.right/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594088716728" />
+    <state width="1877" height="402" key="GridCell.Tab.1.right/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593746004770" />
+    <state width="1397" height="202" key="GridCell.Tab.1.right/1440.23.1920.1057/0.0.1440.900@0.0.1440.900" timestamp="1593569123895" />
+    <state width="1397" height="324" key="GridCell.Tab.1.right/1440.23.1920.1057/41.23.1399.877@41.23.1399.877" timestamp="1593655529747" />
+    <state width="1400" height="273" key="GridCell.Tab.1.right/1440.23.1920.1057/44.23.1396.877@44.23.1396.877" timestamp="1593416008027" />
+    <state x="293" y="193" width="824" height="504" key="IDE.errors.dialog" timestamp="1593161435798">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="293" y="193" width="824" height="504" key="IDE.errors.dialog/0.0.1440.900@0.0.1440.900" timestamp="1593161435798" />
+    <state x="328" y="211" key="IDE.errors.dialog/44.23.1396.877@44.23.1396.877" timestamp="1592952525283" />
+    <state x="367" y="208" key="RollbackChangesDialog" timestamp="1593386374017">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="367" y="208" key="RollbackChangesDialog/0.0.1440.900@0.0.1440.900" timestamp="1593386374017" />
+    <state x="1929" y="250" key="RollbackChangesDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1592905880584" />
+    <state x="1801" y="172" width="1394" height="869" key="SettingsEditor" timestamp="1593742588950">
+      <screen x="1440" y="0" width="1920" height="1080" />
+    </state>
+    <state x="130" y="74" width="1184" height="722" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1593564606813" />
+    <state x="129" y="74" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1593310819945" />
+    <state x="1801" y="172" width="1394" height="869" key="SettingsEditor/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593742588950" />
+    <state x="1613" y="110" key="SettingsEditor/1440.23.1920.1057/43.23.1397.877@1440.23.1920.1057" timestamp="1592966837093" />
+    <state x="406" y="168" width="900" height="722" key="SettingsEditor/43.23.1397.877@43.23.1397.877" timestamp="1592950943054" />
+    <state x="283" y="156" width="1062" height="722" key="SettingsEditor/44.23.1396.877@44.23.1396.877" timestamp="1592952550242" />
+    <state x="436" y="367" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1594097597388">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="436" y="367" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1440.900@0.0.1440.900" timestamp="1594084517296" />
+    <state x="436" y="367" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594097597388" />
+    <state x="2021" y="441" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593744481391" />
+    <state x="466" y="381" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/43.23.1397.877@43.23.1397.877" timestamp="1592951154917" />
+    <state x="472" y="381" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/52.23.1388.877@52.23.1388.877" timestamp="1593065041874" />
+    <state x="499" y="267" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1594097593006">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="499" y="267" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1440.900@0.0.1440.900" timestamp="1594084439945" />
+    <state x="499" y="267" key="com.intellij.testIntegration.createTest.CreateTestDialog/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594097593006" />
+    <state x="2105" y="320" key="com.intellij.testIntegration.createTest.CreateTestDialog/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593744477730" />
+    <state x="252" y="186" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1593851354569">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="252" y="186" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1440.900@0.0.1440.900" timestamp="1593851354569" />
+    <state x="402" y="49" width="636" height="801" key="find.popup" timestamp="1593262516580">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="402" y="49" width="636" height="801" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1593262516580" />
+    <state x="108" y="124" width="1147" height="750" key="new project wizard" timestamp="1594097169907">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="241" y="113" width="1147" height="750" key="new project wizard/0.0.1440.900@0.0.1440.900" timestamp="1594083515558" />
+    <state x="108" y="124" width="1206" height="749" key="new project wizard/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1594097169907" />
+    <state x="1618" y="163" key="new project wizard/1440.0.1920.1080/0.0.1440.900@1440.0.1920.1080" timestamp="1593743567550" />
+    <state x="1440" y="172" key="new project wizard/1440.23.1920.1057/43.23.1397.877@1440.23.1920.1057" timestamp="1592966881705" />
+    <state x="108" y="144" key="new project wizard/41.23.1399.877@41.23.1399.877" timestamp="1593387189945" />
+    <state x="44" y="147" key="new project wizard/44.23.1396.877@44.23.1396.877" timestamp="1592952740780" />
+    <state x="424" y="242" key="refactoring.ChangeSignatureDialog" timestamp="1594084773119">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="424" y="242" key="refactoring.ChangeSignatureDialog/0.0.1440.900@0.0.1440.900" timestamp="1594084773119" />
+    <state x="469" y="200" width="670" height="676" key="search.everywhere.popup" timestamp="1593479622928">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="469" y="200" width="670" height="676" key="search.everywhere.popup/0.0.1440.900@0.0.1440.900" timestamp="1593479622928" />
+    <state x="469" y="200" width="670" height="676" key="search.everywhere.popup/1440.0.1920.1080/0.0.1440.900@0.0.1440.900" timestamp="1593351608990" />
+    <state x="2065" y="258" key="search.everywhere.popup/1440.23.1920.1057/43.23.1397.877@1440.23.1920.1057" timestamp="1592965788430" />
+    <state x="504" y="218" key="search.everywhere.popup/52.23.1388.877@52.23.1388.877" timestamp="1593065008140" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/【237】【Delete Node in a Linked List】/src/Solution.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/【278】【First Bad Version】/src/Solution.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/【080】【Remove Duplicates from Sorted Array II】/src/Solution.java</url>
+          <line>14</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="start2 + k - 1 &gt;= nums2.length" language="JAVA" />
+          <url>file://$PROJECT_DIR$/[004][Median of Two Sorted Arrays]/src/Solution.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[128][Longest Consecutive Sequence]/src/Solution.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[031][Next Permutation]/src/Solution.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[000][common]/src/MaxSubArray.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[020][Valid Parentheses]/src/Solution.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[075][Sort Colors]/src/Solution.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[074][Search A 2D Matrix]/src/Solution.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[078][Subsets]/src/Solution.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="index &gt;= s.length()" language="JAVA" />
+          <url>file://$PROJECT_DIR$/[131][Palindrome Partitioning]/src/Solution.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0122][Best Time to Buy and Sell Stock II]/src/Solution2.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0367][Valid Perfect Square]/src/Solution.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0383][Ransom Note]/src/Solution.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0173][Binary Search Tree Iterator]/src/Solution.java</url>
+          <line>9</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0173][Binary Search Tree Iterator]/src/Solution.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0173][Binary Search Tree Iterator]/src/Solution.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="63" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0173][Binary Search Tree Iterator]/src/Solution.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0173][Binary Search Tree Iterator]/src/Solution.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0173][Binary Search Tree Iterator]/src/Solution.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0173][Binary Search Tree Iterator]/src/Solution.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0401][Binary Watch]/src/Solution.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0429][N-ary Tree Level Order Traversal]/src/Main.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0429][N-ary Tree Level Order Traversal]/src/Solution.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0230][Kth Smallest Element in a BST]/src/Main.java</url>
+          <line>17</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0414][Third Maximum Number]/src/Main.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="77" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0414][Third Maximum Number]/src/Solution.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="78" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0415][Add Strings]/src/Main.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0476][Number Complement]/src/Main.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0287][Find the Duplicate Number]/src/Solution.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="84" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0496][Next Greater Element I]/src/Solution.java</url>
+          <line>62</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0496][Next Greater Element I]/src/Solution.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="88" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0241][Different Ways to Add Parentheses]/src/Solution.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0241][Different Ways to Add Parentheses]/src/Solution.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0427][Construct Quad Tree]/src/Solution.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="i == 3" language="JAVA" />
+          <url>file://$PROJECT_DIR$/[0207][Course Schedule]/src/Solution.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0459][Repeated Substring Pattern]/src/Solution.java</url>
+          <line>43</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0475][Heaters]/src/Solution.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0227][Basic Calculator II]/src/Solution.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="105" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0500][Keyboard Row]/src/Solution.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[1089][Duplicate Zeros]/src/Solution.java</url>
+          <line>6</line>
+          <option name="timeStamp" value="108" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0392][Is Subsequence]/src/Solution.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0441][Arranging Coins]/src/Solution.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="111" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0443][String Compression]/src/Solution.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0447][Number of Boomerangs]/src/Solution.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0447][Number of Boomerangs]/src/Solution.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0507][Perfect Number]/src/Solution.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0523][K Diff Pairs In An Array]/src/Solution.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0551][Student Attendance Record I]/src/Solution.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0566][Reshape the Matrix]/src/SolutionTest.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0572][Subtree of Another Tree]/src/Solution.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="root.val == 4" language="JAVA" />
+          <url>file://$PROJECT_DIR$/[0572][Subtree of Another Tree]/src/Solution.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0572][Subtree of Another Tree]/src/Solution.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0599][Minimum Index Sum of Two Lists]/src/Solution.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0605][Can Place Flowers]/src/Solution.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0643][Maximum Average Subarray I]/src/Solution.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0653][Two Sum IV - Input is a BST]/src/Solution.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="147" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0661][Image Smoother]/src/SolutionTest.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="148" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0661][Image Smoother]/src/Solution.java</url>
+          <line>25</line>
+          <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/[0671][Second Minimum Node In a Binary Tree]/src/Solution.java</url>
+          <line>60</line>
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/[081][Search In Rotated Sorted Array II]/src/Solution2.java</url>
+          <line>17</line>
+          <properties class="Solution2">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/[0095][Unique Binary Search Trees II]/src/Main.java</url>
+          <line>16</line>
+          <properties class="Main" method="print">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/leetcode$SolutionTest_findLHS.ic" NAME="SolutionTest.findLHS Coverage Results" MODIFIED="1593847358758" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
