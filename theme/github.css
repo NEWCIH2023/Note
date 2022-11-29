@@ -451,6 +451,7 @@ em::after {
 }
 
 * {
-	font-family: '苹方-港', "Segoe UI", "Arial", sans-serif !important;
+	/** font-family: '苹方-港', "Segoe UI", "Arial", sans-serif !important; **/
+	font-family:'Manrope + 字由心雨', '苹方-港', "Segoe UI", "Arial", sans-serif !important;
 	font-weight: bold !important;
 }
