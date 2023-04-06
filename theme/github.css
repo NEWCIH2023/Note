@@ -16,20 +16,17 @@ body {
 }
 
 #write {
-	max-width: 860px;
 	margin: 0 auto;
 	padding: 30px !important;
 }
 
 @media only screen and (min-width: 1400px) {
 	#write {
-		max-width: 1024px;
 	}
 }
 
 @media only screen and (min-width: 1800px) {
 	#write {
-		max-width: 1200px;
 	}
 }
 
@@ -326,10 +323,6 @@ pre {
 
 .on-focus-mode blockquote {
 	border-left-color: rgba(85, 85, 85, 0.12);
-}
-
-@media screen and (max-width: 1920px) {
-	* {}
 }
 
 header,
