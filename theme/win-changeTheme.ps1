@@ -1,1 +1,1 @@
-cp github.css 'C:\Users\liuguangsheng.SZSYY\AppData\Roaming\Typora\themes\github.css'
+cp github.css 'C:\Users\liuguangsheng\AppData\Roaming\Typora\themes\github.css'
