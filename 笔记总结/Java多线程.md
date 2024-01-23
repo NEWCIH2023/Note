@@ -43,7 +43,11 @@
 
 ![img](../images/39b4e53a2d113b047b35e89cf9511873.png)
 
-> Monitor描述为对象监视器，可以类比一个特殊的房间，这个房间中有一些被保护的数据，Monitor保证每次只能有一个线程能进入这个房间进行访问被保护的数据，进入房间即为持有Monitor，退出房间即为释放Monitor。使用synchronized加锁的同步代码块，主要就是通过锁对象的monitor的取用和释放来实现的。  
+> Monitor描述为对象监视器，可以类比一个特殊的房间，这个房间中有一些被保护的数据，Monitor保证每次只能有一个线程能进入这个房间进行访问被保护的数据，进入房间即为持有Monitor，退出房间即为释放Monitor。使用synchronized加锁的同步代码块，主要就是通过锁对象的monitor的取用和释放来实现的。
+>
+> + 被*synchronized*修饰过的程序块，在编译前后被编译器生成了*monitorenter*和*monitorexit*两个字节码指令
+> + 虚拟机执行到*monitorenter*指令时，首先要尝试获取对象的锁
+>   + 如果这个对象没有锁定，或者当前线程已经拥有了这个对象的锁，把*锁的计数器+1*；当执行*monitorexit*指令时，将*锁的计数器-1*；当计数器为0时，锁就被释放了
 
   + 线程状态在Monitor上体现
     当多个线程同时请求某个对象监视器时，对象监视器会设置几种状态用来区分请求的线程
@@ -86,7 +90,9 @@
     + `synchronized`靠操作系统内核互斥锁实现的，相当于JMM中的`lock`和`unlock`。退出代码块时一定会刷新变量回主内存。
     + `volatile`靠插入内存屏障指令防止其后面的指令跑到它前面去了
 
-  + 简言之，`volatile`关键字识别一个变量，意味着这个变量的值会被不同的线程修改。
+  + 简言之，`volatile`关键字识别一个变量，意味着这个变量的值会被不同的线程修改
+    + 既然*volatile*能够保证线程间的变量可见性，是不是就意味着基于*volatile*变量的运算就是并发安全的？
+      + **显然不是的**，基于*volatile*变量的运算在并发下不一定是安全的。*volatile*变量在各个线程的*工作内存*，不存在一致性问题（各个线程的工作内存中volatile变量，每次使用前都要刷新到*主内存*）。但是Java里面的运算并非*原子操作*，导致*volatile*变量的运算在并发下一样是不安全的
 
   + 为了提高性能，`Java`语言规范允许`JRE`在`引用变量的每个线程`中`维护该变量的一个本地副本`。您可以将变量的这些“线程局部”副本看作是与缓存类似，在每次线程需要访问变量的值时帮助它避免检查主存储器。
 
@@ -297,15 +303,17 @@ public class InterruptExample {
   }
 ```
 
-##线程状态转换
+## 线程状态转换
 
-+ `新建 NEW`：创建后尚未启动
+![image-20240119150716504](./../images/image-20240119150716504.png)
 
-+ `可运行 RUNNABLE`：可能正在运行，也可能正在等待CPU时间片 (`Running/Ready`)。当`Thread`实例的`yield`方法被调用时，或者由于线程调度器的原因，相应线程的状态会由`RUNNING`转换为`READY`。
++ `新建 `-*New*：创建后尚未启动
 
-+ `阻塞 BLOCKED`：等待获取一个排他锁，如果其线程释放了锁就会结束此状态。等待监控锁进入`synchronized`块或方法，或者在调用`Object.wait`方法后（源码注释）。该状态下不占用CPU资源。结束此状态后，转回`RUNNABLE`状态
++ `可运行`-*Runnable*：可能正在运行，也可能正在等待CPU时间片 (`Running/Ready`)。当`Thread`实例的`yield`方法被调用时，或者由于线程调度器的原因，相应线程的状态会由`RUNNING`转换为`READY`。
 
-+ `无限期等待 WAITING`：等待其他线程显式地唤醒，否则不会分配CPU时间片。因为调用了以下三种方法
++ `阻塞 `-*Blocked*：等待获取一个排他锁，如果其线程释放了锁就会结束此状态。等待监控锁进入`synchronized`块或方法，或者在调用`Object.wait`方法后（源码注释）。该状态下不占用CPU资源。结束此状态后，转回`RUNNABLE`状态
+
++ `无限期等待 `-*Waiting*：等待其他线程显式地唤醒，否则不会分配CPU时间片。因为调用了以下三种方法
 
   + `Object.wait` 未设置 `timeout`
   + `Thread.join` 未设置 `timeout`
@@ -317,7 +325,7 @@ public class InterruptExample {
   - `Object.notifyAll`
   - `LockSupport.unpark(thread)`
 
-+ `限期等待 TIMED_WAITING`：无需等待其他线程显式的唤醒，在一定时间之后会被系统自动唤醒（但如果其他线程在指定时间内执行该线程所期望的特定操作后，能提早转换为`RUNNABLE`）。因为调用了以下方法
++ `限期等待 `-*Timed Waiting*：无需等待其他线程显式的唤醒，在一定时间之后会被系统自动唤醒（但如果其他线程在指定时间内执行该线程所期望的特定操作后，能提早转换为`RUNNABLE`）。因为调用了以下方法
 
   + `Thread.sleep`
   + `Object.wait` 设置了 `timeout`
@@ -325,9 +333,22 @@ public class InterruptExample {
   + `LockSupport.parkNanos`
   + `LockSupport.parkUntil`
 
-+ `执行结束 TERMINATED`：线程执行完成
++ `执行结束 `-*Terminated*：线程执行完成
 
-##参考链接
+## 状态控制
+
++ *wait、notify、notifyAll*
+  + 是定义在*Object*类的实例方法，用于控制*线程状态*，三个方法都必须在*synchronized*同步关键字所限定的作用域中调用，否则会报错**java.lang.IllegalMonitorStateException**
+  + *wait*：线程状态由*Running*变为*Waiting*，并将当前线程放入*等待队列*中
+  + *notify*：将*等待队列*中的一个等待线程移动到*同步队列*中
+  + *notifyAll*：将所有*等待队列*中的线程移动到*同步队列*中
+    + 被移动的线程状态由*Running*变为*Blocked*，*notifyAll*方法调用后，等待线程依旧不会从*wait*返回，需要调用*notify*或者*notifyAll*的线程释放掉锁后，等待线程才有机会从*wait*返回
++ *join、sleep、yield*
+  + 在很多种情况，*主线程*创建并启动*子线程*，如果*子线程*中需要进行大量的耗时计算，*主线程*往往早于*子线程*结束。这时，如果*主线程*想等待*子线程*执行结束之后再结束，就要用*join*方法
+  + *sleep*（long）方法在睡眠时*不释放对象锁*，而*join*方法在等待的过程中*释放对象锁*
+  + *yield*方法会临时*暂停*当前正在执行的线程，来让有同样*优先级*的*正在等待*的线程有机会执行。如果没有正在等待的线程，或者所有正在等待的线程的*优先级*都比较低，那么该线程会继续运行。执行了*yield*方法的线程什么时候会继续运行由线程调度器来决定
+
+## 参考链接
 
 [多线程编程](https://developer.ibm.com/zh/articles/j-5things15/)
 
@@ -357,6 +378,8 @@ public class InterruptExample {
 
 ## 常用锁
 
+![image-20240121155243694](./../images/image-20240121155243694.png)
+
 ### 独享锁 VS 共享锁
 
 独享锁，又叫`排他锁`，是指该锁一次只能被一个线程所持有。如果`线程T`对`数据A`加上排他锁后，则`其他线程`不能再对A加任何类型的锁。获得排他锁的线程既能读数据又能修改数据。
@@ -382,9 +405,9 @@ public class InterruptExample {
 
 ### 可重入锁 VS 非可重入锁
 
-可重入锁，又名`递归锁`。是指在同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁 (`前提锁对象得是同一个对象或class`)，不会因为之前已经获取过还没释放而阻塞。
+可重入锁，又名`递归锁`。是指在同一个线程在外层方法获取锁的时候，再进入该线程的内层方法会自动获取锁 (`前提锁对象得是同一个对象或class`)，不会因为之前已经获取过还没释放而阻塞。（*解决自己锁死自己的情况*）
 
-> ReentrantLock与synchronized都是可重入锁
+> *ReentrantLock*与*synchronized*都是可重入锁
 
 ![Image](../images/640-20210311101113980)
 
@@ -488,7 +511,7 @@ select ... for update
 
 ![Image](../images/640)
 
-##AQS
+## AQS
 
 ### 基础说明
 
@@ -510,7 +533,7 @@ AQS框架架构图如下：**有颜色的是方法，无颜色的是属性**
 
 ![82077ccf14127a87b77cefd1ccf562d3253591](../images/82077ccf14127a87b77cefd1ccf562d3253591.png)
 
-###原理概览
+### 原理概览
 
 AQS核心思想是，如果被请求的`共享资源`空闲，那么就将当前请求资源的线程设置为有效的工作线程，将共享资源设置为`锁定状态`；如果`共享资源`被占用，就需要一定的阻塞等待唤醒机制来保证锁分配。这个机制主要用到的是`CLH队列的变体 (Craig、Landin and Hagersten队列，单向链表，AQS中的队列是CLH变体的虚拟双向队列(FIFO)，AQS是通过将每条请求共享资源的线程封装成一个节点来实现锁的分配)`实现的，将暂时获取不到锁的线程加入到队列中。
 
@@ -574,7 +597,7 @@ AQS使用一个`volatile的int类型的成员变量state`来表示`同步状态`
 
 
 
-##CAS
+## CAS
 
 CAS是一种乐观锁思想。涉及到三个操作数
 
@@ -582,7 +605,7 @@ CAS是一种乐观锁思想。涉及到三个操作数
 + 进行比较的值A (在`数据库读写`场景，这个一般是待写入新值时，之前读取出来的内存值，但CAS是通用思想，因此用这种说法表示)
 + 要写入的新值B
 
-###缺点
+### 缺点
 
 + 功能限制
 
@@ -615,7 +638,7 @@ CAS是一种乐观锁思想。涉及到三个操作数
 
 > Java中的AtomicStampedReference类就是用版本号解决ABA问题。
 
-##Lock接口
+## Lock接口
 
 支持语义不同(`重入`、`公平`等)的锁规则
 
@@ -626,6 +649,26 @@ CAS是一种乐观锁思想。涉及到三个操作数
 + 公平机制
 
   不同线程获取锁的机制是公平的
+
+```java
+public interface Lock {
+    void lock();
+    void lockInterruptibly() throws InterruptedException;
+    boolean tryLock();
+    boolean tryLock(long time, TimeUnit unit) throws InterruptedException;
+    void unlock();
+    Condition newCondition();
+}
+```
+
++ *lock*
+  + 用来*获取锁*，如果锁被其他线程获取，处于*等待*状态。如果采用*Lock*，必须主动去*释放锁*，并且在发生异常时，不会*自动释放锁*。因此一般来说，使用*Lock*必须在*try-catch*块中进行，并且将*释放锁*的操作放在*finally*块中进行，以保证*锁*一定被*释放*，防止*死锁*的发生
++ *lockInterruptibly*
+  + 通过这个方法去*获取锁*时，如果线程正在*等待获取锁*，则这个线程能够*响应中断*，即中断线程的等待状态
++ *tryLock*
+  + *tryLock*方法是有返回值的，它表示用来*尝试获取锁*，如果获取成功，则返回true，如果获取失败（即锁已被其它线程获取），则返回false，也就是说这个方法无论如何都会立即返回。在拿不到锁时，不会一直在那等待
++ *tryLock*（long，TimeUnit）
+  + 与*tryLock*类似，只不过是有*等待时间*，在*等待时间*内获取到锁返回true，超时返回false
 
 ## ReadWriteLock接口
 
@@ -1076,3 +1119,6 @@ j是否等于1呢？假定线程A的操作`happens-before`于线程B的操作，
 
 理论上，用`map`存放线程对象和值的键值对就可以实现`ThreadLocal`的功能，但是性能上不是最优的，多线程访问`ThreadLocal`的`map`对象会导致并发冲突，用`synchronized`加锁会导致性能上的损失。因此，`JDK7`里是将map对象保存在线程里，这样每个线程去取自己的数据，就不需要加锁保护的。
 
++ 使用*ThreadLocal*要注意**remove**！
+  + *ThreadLocal*的实现是基于一个所谓的*ThreadLocalMap*，在*ThreadLocalMap*中，它的*key*是一个*弱引用*。**通常弱引用都会和引用队列配合清理机制使用**，但是*ThreadLocal*是个例外，它并没有这么做。这意味着，废弃项目的回收依赖于*显式地触发*，否则就要等待线程结束，进而回收相应*ThreadLocalMap*，这就是很多**OOM**的来源，所以通常都会建议，应用一定要自己负责*remove*，并且不要和线程池配合，因为worker线程往往是不会退出的
+  + 

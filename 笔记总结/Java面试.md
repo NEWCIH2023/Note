@@ -166,11 +166,21 @@
 
 ### SpringBoot
 
++ *FileSystemResource*和*ClassPathResource*有何区别
+  + *FileSystemResource*在**配置文件**中读取配置文件，*ClassPathResource*在**环境变量**中读取配置文件
+
 ### MyBatis
+
++ 
 
 ### ElasticSearch
 
 ### Redis
+
+### Netty
+
++ *多路复用通讯方式*
+  + 当需要同时处理多个客户端接入请求时，可以利用*多线程*或者*IO多路复用*技术进行处理。IO多路复用技术通过把多个IO的阻塞
 
 
 
