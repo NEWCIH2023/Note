@@ -122,9 +122,9 @@ public class ThreadTest extends Thread {
 
 ### JVM内存模型
 
-![v2-354d31865d1fb3362f5a1ca938f9a770_1440w](../images/v2-354d31865d1fb3362f5a1ca938f9a770_1440w.jpg)
+![v2-354d31865d1fb3362f5a1ca938f9a770_1440w](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/v2-354d31865d1fb3362f5a1ca938f9a770_1440w.jpg)
 
-![image-20240115151600272](./../images/image-20240115151600272.png)
+![image-20240115151600272](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/image-20240115151600272.png)
 
 #### 本地方法栈
 
@@ -565,7 +565,7 @@ public boolean add(E e) {
 
 当一个Map被多个线程访问时，通常使用`containsKey()`或者`get()`来查看给定键是否在存储键值对之前出现。但是即使有一个同步的Map，线程还是可以在这个过程中潜入，然后夺取对Map的控制权。问题是，在对put()的调用中，锁在get()开始时获取，然后在可以再次获取锁之前释放。它的结果是个竞争条件：`这是两个线程之间的竞争，结果也会因谁先运行而不同`
 
-![image-20240118172708028](./../images/image-20240118172708028.png)
+![image-20240118172708028](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/image-20240118172708028.png)
 
 + *ConcurrentHashMap* 最外层不是一个大的数组，而是一个*Segment*的数组。每个*Segment*包含一个与*HashMap*数据结构差不多的*链表数组*
 
@@ -596,14 +596,14 @@ public boolean add(E e) {
 #### JDK 8
 
 + JDK 7已经解决了*并发*问题，并且能支持N个Segment这么多次的并发，但依然存在HashMap在JDK 7中的问题：*查询遍历链表效率太低*，因此JDK 8做了一些数据结构上的调整
-+ ![image-20240119144535242](./../images/image-20240119144535242.png)
++ ![image-20240119144535242](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/image-20240119144535242.png)
 + 抛弃了原有的*Segment分段锁*，采用了*CAS + synchronized*来保证并发安全性
 
 ### HashMap工作原理
 
-![image-20240118164714306](./../images/image-20240118164714306.png)
+![image-20240118164714306](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/image-20240118164714306.png)
 
-![image-20240118164730113](./../images/image-20240118164730113.png)
+![image-20240118164730113](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/image-20240118164730113.png)
 
 
 
@@ -631,7 +631,7 @@ public boolean add(E e) {
       + 数组长度大于等于64
   + 最后判断HashMap的大小是否大于阈值，如果大于，则进行扩容
 
-![v2-98de7c56c842a5b0458cec3f564e493d_1440w](../images/v2-98de7c56c842a5b0458cec3f564e493d_1440w.jpg)
+![v2-98de7c56c842a5b0458cec3f564e493d_1440w](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/v2-98de7c56c842a5b0458cec3f564e493d_1440w.jpg)
 
 + `resize`
   + 判断当前的table里面的size是否大于0，如果大于0的话，就会判断当前的table里面的size是否超过了最大值，如果超过最大值，就不会再扩容，如果没有超过的话，就会将原有的size扩大到原来的两倍，并且判断扩容之后的size是否大于最大值，如果超过最大值就按照最大值来扩容。

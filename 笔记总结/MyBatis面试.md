@@ -33,7 +33,7 @@ protected boolean cacheEnabled = true;
     + mapper级别缓存，跨sqlSession，不同的SqlSession对象执行两次相同的SQL语句，第一次就将查询结果缓存，第二次返回缓存。**默认不开启**
   + 对于缓存数据*更新机制*，当某一个作用域（一级缓存 Session/ 二级缓存 Namespaces）进行了**C/U/D** 操作后，默认该作用域下所有*select*中的缓存将被*clear*
 
-![772134-20170407225038957-716642123](../images/772134-20170407225038957-716642123.png)
+![772134-20170407225038957-716642123](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/772134-20170407225038957-716642123.png)
 
 ## FAQ
 

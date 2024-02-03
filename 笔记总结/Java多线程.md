@@ -41,7 +41,7 @@
 
   Monitor是`线程`私有的数据结构，每一个线程都有一个可用monitor record列表，同时还有一个全局可用列表。每一个被锁住的对象都会和一个`monitor`关联，同时monitor中有一个`Owner`字段存放`拥有该锁的线程的唯一标识`，表示该锁被这个线程占用。
 
-![img](../images/39b4e53a2d113b047b35e89cf9511873.png)
+![img](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/39b4e53a2d113b047b35e89cf9511873.png)
 
 > Monitor描述为对象监视器，可以类比一个特殊的房间，这个房间中有一些被保护的数据，Monitor保证每次只能有一个线程能进入这个房间进行访问被保护的数据，进入房间即为持有Monitor，退出房间即为释放Monitor。使用synchronized加锁的同步代码块，主要就是通过锁对象的monitor的取用和释放来实现的。
 >
@@ -57,7 +57,7 @@
     + OnDeck `任何时刻最多只有一个线程正在竞争锁，该线程称为OnDeck`
     + Owner `释放锁的线程`
 
-![img](../images/5bda59dde6fb799154d03d61cb27b717.png)
+![img](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/5bda59dde6fb799154d03d61cb27b717.png)
 
 
 
@@ -305,7 +305,7 @@ public class InterruptExample {
 
 ## 线程状态转换
 
-![image-20240119150716504](./../images/image-20240119150716504.png)
+![image-20240119150716504](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/image-20240119150716504.png)
 
 + `新建 `-*New*：创建后尚未启动
 
@@ -378,7 +378,7 @@ public class InterruptExample {
 
 ## 常用锁
 
-![image-20240121155243694](./../images/image-20240121155243694.png)
+![image-20240121155243694](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/image-20240121155243694.png)
 
 ### 独享锁 VS 共享锁
 
@@ -409,13 +409,13 @@ public class InterruptExample {
 
 > *ReentrantLock*与*synchronized*都是可重入锁
 
-![Image](../images/640-20210311101113980)
+![Image](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/640-20210311101113980.png)
 
 `方法嵌套调用`：因为内置锁是可重入的，所以同一个线程在调用`doOthers`时可以直接获得当前对象的锁，进入`doOthers`进行操作。如果是一个不可重入锁，那么当前线程在调用`doOthers`之前需要将执行`doSomething`时获取当前对象的锁释放掉，实际上该对象锁已被当前线程所持有，且无法释放。所以此时会出现死锁。
 
 ### 锁的状态
 
-![Image](../images/640.jpeg)
+![Image](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/640.jpeg)
 
 #### 无锁
 
@@ -459,7 +459,7 @@ public class InterruptExample {
 
 
 
-![img](../images/53694237c936e209f12e5312f1cfdf15.png)
+![img](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/53694237c936e209f12e5312f1cfdf15.png)
 
 ### 公平锁
 
@@ -509,7 +509,7 @@ select ... for update
 + 当竞争激烈(`出现并发冲突的概率大`)时，悲观锁更有优势。乐观锁执行更新失败时需要`不断重试`，浪费CPU资源 (`可引入退出机制，重试次数超过一定阈值后失败退出`)。
 + `悲观锁`适合`写`操作多的场景，先加锁可以保证写操作时数据正确。`乐观锁`适合`读`操作多的场景，不加锁的特点是能够使其操作的性能大幅提升。
 
-![Image](../images/640)
+![Image](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/640.png)
 
 ## AQS
 
@@ -531,13 +531,13 @@ public class ReentrantLock implements Lock, java.io.Serializable {
 
 AQS框架架构图如下：**有颜色的是方法，无颜色的是属性**
 
-![82077ccf14127a87b77cefd1ccf562d3253591](../images/82077ccf14127a87b77cefd1ccf562d3253591.png)
+![82077ccf14127a87b77cefd1ccf562d3253591](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/82077ccf14127a87b77cefd1ccf562d3253591.png)
 
 ### 原理概览
 
 AQS核心思想是，如果被请求的`共享资源`空闲，那么就将当前请求资源的线程设置为有效的工作线程，将共享资源设置为`锁定状态`；如果`共享资源`被占用，就需要一定的阻塞等待唤醒机制来保证锁分配。这个机制主要用到的是`CLH队列的变体 (Craig、Landin and Hagersten队列，单向链表，AQS中的队列是CLH变体的虚拟双向队列(FIFO)，AQS是通过将每条请求共享资源的线程封装成一个节点来实现锁的分配)`实现的，将暂时获取不到锁的线程加入到队列中。
 
-![7132e4cef44c26f62835b197b239147b18062](../images/7132e4cef44c26f62835b197b239147b18062.png)
+![7132e4cef44c26f62835b197b239147b18062](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/7132e4cef44c26f62835b197b239147b18062.png)
 
 AQS使用一个`volatile的int类型的成员变量state`来表示`同步状态`，通过内置的FIFO队列来完成资源获取的排队工作，通过`CAS`完成对`state`值的修改。
 
@@ -545,11 +545,11 @@ AQS使用一个`volatile的int类型的成员变量state`来表示`同步状态`
 
 通过修改state字段表示的同步状态来实现多线程的独占模式：
 
-![27605d483e8935da683a93be015713f331378](../images/27605d483e8935da683a93be015713f331378.png)
+![27605d483e8935da683a93be015713f331378](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/27605d483e8935da683a93be015713f331378.png)
 
 通过修改state字段表示的同步状态来实现多线程的共享模式：
 
-![3f1e1a44f5b7d77000ba4f9476189b2e32806](../images/3f1e1a44f5b7d77000ba4f9476189b2e32806.png)
+![3f1e1a44f5b7d77000ba4f9476189b2e32806](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/3f1e1a44f5b7d77000ba4f9476189b2e32806.png)
 
 
 
@@ -734,7 +734,7 @@ if (lock.tryLock(1, TimeUnit.SECONDS)) {
 }
 ```
 
-![412d294ff5535bbcddc0d979b2a339e6102264](../images/412d294ff5535bbcddc0d979b2a339e6102264.png)
+![412d294ff5535bbcddc0d979b2a339e6102264](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/412d294ff5535bbcddc0d979b2a339e6102264.png)
 
 ## ReentrantReadWriteLock (读写锁，基于`AQS`)
 
@@ -744,7 +744,7 @@ if (lock.tryLock(1, TimeUnit.SECONDS)) {
 
 CyclicBarrier适用于`多个线程有固定的多步需要执行，线程间互相等待，当都执行完了，再一起执行下一步`。
 
-![img](../images/400827-20170928140524809-537975110.png)
+![img](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/400827-20170928140524809-537975110.png)
 
 上图7个线程各有一个`barrier.await`，任何一个线程在执行到`await`时就会进入阻塞等待状态，直到7个线程都到了`await`时才会同时从`await`返回，继续后面的工作。
 
@@ -804,7 +804,7 @@ try {
 
 当多个线程都达到了预期状态时触发事件，其他线程可以等待这个事件来触发自己的后续工作。`等待的线程可以是多个，即CountDownLatch可以唤醒多个等待的线程`。`达到自己预期状态`的线程调用CountDownLatch的`countDown`方法，而`等待`的线程会调用CountDownLatch的`await`方法。
 
-![img](../images/400827-20170928135838278-808448367-20210308100603360.png)
+![img](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/400827-20170928135838278-808448367-20210308100603360.png)
 
 
 
@@ -954,7 +954,7 @@ ArrayBlockingQueue<Integer> block = new ArrayBlockingQueue<Integer>(10, true);
 |**STOP**|不能接受新任务，也不处理队列中的任务，会中断正在处理任务的线程|
 |**TIDYING**|所有的任务都已经终止了，workerCount(`有效线程数`)为0|
 
-![图3 线程池生命周期](../images/582d1606d57ff99aa0e5f8fc59c7819329028.png)
+![图3 线程池生命周期](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/582d1606d57ff99aa0e5f8fc59c7819329028.png)
 
 ### 复用原理
 
@@ -963,13 +963,13 @@ ArrayBlockingQueue<Integer> block = new ArrayBlockingQueue<Integer>(10, true);
 
 ### 执行流程
 
-![截屏2021-03-11 15.54.14](../images/%E6%88%AA%E5%B1%8F2021-03-11%2015.54.14.png)
+![截屏2021-03-11 15.54.14](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/%E6%88%AA%E5%B1%8F2021-03-11%2015.54.14.png)
 
 ### 参数说明
 
 + 拒绝策略
 
-![img](../images/9ffb64cc4c64c0cb8d38dac01c89c905178456.png)
+![img](https://newcih-picgo.oss-cn-beijing.aliyuncs.com/9ffb64cc4c64c0cb8d38dac01c89c905178456.png)
 
 
 + `corePoolSize`
